@@ -154,8 +154,8 @@ npm install
 npm run dev
 ```
 
-Open the local URL Vite prints in Chrome (`http://localhost:5173`). In a second terminal tab, start
-live test feedback so tests re-run automatically whenever you save a file:
+Open the local URL that Vite prints in Chrome (`http://localhost:5173`). In a second terminal tab,
+start live test feedback so tests re-run automatically whenever you save a file:
 
 ```bash
 cd starter
