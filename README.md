@@ -160,7 +160,9 @@ npm run check
 
 For each weekly assignment (e.g., `week1`):
 
-1. Switch to `main` and create a new branch (e.g., `week1`).
+1. Switch to `main` and **pull the latest changes** (click **Fetch origin** / **Pull origin** in
+   GitHub Desktop, or run `git checkout main && git pull`) so any merged pull requests from prior
+   weeks are up to date locally, then create a new branch (e.g., `week1`).
 2. Copy the starter into `projects/week1` (copy/paste the `starter` folder in VS Code, or run
    `scripts/mpf.sh week1` from Git Bash / macOS / Linux).
 3. Inside `projects/week1`, run `npm install` and `npm run dev` while you build.

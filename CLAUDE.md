@@ -164,8 +164,8 @@ examples, docs):
 - **Low-friction Week 1 path:** Lead with **GitHub Desktop** or **VS Code Source Control** (HTTPS
   browser sign-in, no SSH keys required) and standard cross-platform Node LTS, with CLI Git and
   GitHub Codespaces documented as optional paths.
-- Keep the Git loop small and consistent every week: `clone` -> `branch` -> `commit` -> `push` ->
-  `open PR` (with `artzte` as reviewer).
+- Keep the Git loop small and consistent every week: `pull main` -> `branch` -> `commit` -> `push`
+  -> `open PR` (with `artzte` as reviewer).
 
 ### Starter Kit & Tooling
 
@@ -233,8 +233,9 @@ assignment. Matching lecture guides go in `lectures/`, starter fixtures and DevT
 - **Accept more than one valid implementation** where appropriate (e.g., CSS Grid track sizing
   choices, semantic structure variations that still pass accessibility checks).
 - **Write requirements as nested bullet lists**, not dense paragraphs.
-- Standard submission loop: branch, scaffold folder, `npm run dev` / `npm run lint` /
-  `npm run format`, open PR with **artzte** as reviewer, submit PR URL on Canvas.
+- Standard submission loop: switch to `main` and pull latest (so prior merged PRs are included),
+  create a branch, scaffold folder, `npm run dev` / `npm run lint` / `npm run format`, open PR with
+  **artzte** as reviewer, submit PR URL on Canvas.
 
 ### HTML & CSS Style in Examples and Solutions
 
