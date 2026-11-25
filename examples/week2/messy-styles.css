@@ -1,0 +1,290 @@
+/* Week 2 Fixture: Intentionally messy stylesheet.
+ * Look for: hardcoded repeated colors, !important hacks, overly specific ID
+ * selectors, brittle fixed pixel typography, repetitive selectors, physical
+ * margin/padding properties, and zero dark-mode support.
+ */
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family:
+    system-ui,
+    -apple-system,
+    sans-serif;
+  line-height: 1.6;
+  color: #1c242b;
+  background-color: #f8f9fa;
+  font-size: 16px;
+}
+
+.container {
+  max-width: 1088px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 16px;
+  padding-right: 16px;
+}
+
+.site-header {
+  background-color: #1f3d4d;
+  color: #ffffff;
+  padding-top: 18px;
+  padding-bottom: 18px;
+}
+
+.site-header .brand {
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 20px;
+}
+
+.header-inner {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+}
+
+.nav-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.site-header .nav-list a {
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.site-header .nav-list a:hover {
+  text-decoration: underline;
+}
+
+/* Over-specific selector fight that forced !important later */
+#main-content section h2 {
+  color: #1f3d4d;
+  font-size: 28px;
+  margin-top: 0;
+  margin-bottom: 12px;
+}
+
+#main-content .hero {
+  background-color: #e9f0f4;
+  border: 1px solid #c9d8e0;
+  border-radius: 10px;
+  padding-top: 36px;
+  padding-bottom: 36px;
+  padding-left: 28px;
+  padding-right: 28px;
+  margin-top: 32px;
+  margin-bottom: 40px;
+}
+
+#main-content .hero h1 {
+  font-size: 40px;
+  line-height: 1.15;
+  color: #1c242b;
+  margin-top: 0;
+  margin-bottom: 16px;
+}
+
+@media (max-width: 640px) {
+  #main-content .hero h1 {
+    font-size: 26px;
+  }
+
+  #main-content section h2 {
+    font-size: 22px;
+  }
+}
+
+.hero-lead {
+  font-size: 18px;
+  color: #42505c;
+  max-width: 62ch;
+  margin-top: 0;
+  margin-bottom: 24px;
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.btn {
+  display: inline-block;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 18px;
+  padding-right: 18px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.btn-primary {
+  background-color: #1f3d4d;
+  color: #ffffff;
+}
+
+.btn-primary:hover {
+  background-color: #152b36;
+}
+
+.btn-secondary {
+  background-color: #ffffff;
+  color: #1f3d4d;
+  border: 1px solid #1f3d4d;
+}
+
+.btn-secondary:hover {
+  background-color: #dde7ec;
+}
+
+.section {
+  margin-bottom: 44px;
+}
+
+.section-intro {
+  color: #42505c;
+  margin-top: 0;
+  margin-bottom: 20px;
+}
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 20px;
+}
+
+#main-content .service-card {
+  background-color: #ffffff;
+  border: 1px solid #d4dde3;
+  border-radius: 8px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+#main-content .service-card h3.card-title {
+  font-size: 20px;
+  margin-top: 0;
+  margin-bottom: 6px;
+  color: #1c242b;
+}
+
+.service-card .card-meta {
+  font-size: 14px;
+  color: #52616e;
+  margin-top: 0;
+  margin-bottom: 12px;
+}
+
+.service-card p {
+  margin-top: 0;
+  margin-bottom: 14px;
+}
+
+.service-card a.card-link {
+  color: #1f3d4d;
+  font-weight: 600;
+}
+
+/* Specificity war! Someone used !important to beat #main-content .service-card */
+.featured {
+  border: 2px solid #b5542b !important;
+  background-color: #fff8f4 !important;
+}
+
+.featured .card-title {
+  color: #8f3d1b !important;
+}
+
+.callout {
+  background-color: #ffffff;
+  border-left: 5px solid #b5542b;
+  border-top: 1px solid #d4dde3;
+  border-right: 1px solid #d4dde3;
+  border-bottom: 1px solid #d4dde3;
+  border-radius: 6px;
+  padding-top: 18px;
+  padding-bottom: 18px;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.callout h3 {
+  margin-top: 0;
+  margin-bottom: 8px;
+  color: #1f3d4d;
+}
+
+.callout p {
+  margin: 0;
+}
+
+.shop-notes {
+  background-color: #eef2f5;
+  border-radius: 8px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  padding-left: 24px;
+  padding-right: 24px;
+}
+
+.shop-notes h2 {
+  color: #1c242b !important;
+  font-size: 22px !important;
+  margin-top: 0;
+  margin-bottom: 12px;
+}
+
+.notes-list {
+  margin: 0;
+  padding-left: 20px;
+}
+
+.notes-list li {
+  margin-bottom: 8px;
+}
+
+.site-footer {
+  background-color: #1f3d4d;
+  color: #ffffff;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  margin-top: 48px;
+}
+
+.footer-inner {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+}
+
+.site-footer p {
+  margin: 0;
+}
+
+.site-footer a {
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.site-footer a:hover {
+  text-decoration: underline;
+}
