@@ -38,16 +38,17 @@ There is no paid textbook. Assigned readings use Google's free
 [web.dev Learn](https://web.dev/learn) series, [MDN Web Docs](https://developer.mozilla.org/), and
 official Tailwind CSS and Google Search Central documentation.
 
-| Tool                            | Purpose                                                                      |
-| ------------------------------- | ---------------------------------------------------------------------------- |
-| **VS Code**                     | Code editor (with built-in Git Source Control and Live/Vite integration)     |
-| **Git + GitHub**                | Version control and PR-based submissions (GitHub Desktop or VS Code + HTTPS) |
-| **Node.js (LTS) / npm**         | Running the starter kit, linters, formatter, and build scripts               |
-| **Vite**                        | Local dev server and multi-page production build                             |
-| **Prettier + HTML/CSS linters** | Consistent formatting and automated markup/stylesheet checks                 |
-| **Tailwind CSS v4**             | Utility-first CSS framework introduced in Week 7 (`@tailwindcss/vite`)       |
-| **AWS CloudFront**              | Course hosting via GitHub Actions (replaces legacy FTP uploads)              |
-| **Browser DevTools + axe**      | Layout inspection, Accessibility Tree, Lighthouse, and performance auditing  |
+| Tool                            | Purpose                                                                       |
+| ------------------------------- | ----------------------------------------------------------------------------- |
+| **VS Code**                     | Code editor (with built-in Git Source Control and integrated terminal)        |
+| **Git + GitHub**                | Version control and PR-based submissions (HTTPS Git in VS Code; GUI optional) |
+| **Node.js (LTS) / npm**         | Running the starter kit, linters, tests, formatter, and build scripts         |
+| **Vite**                        | Local dev server and multi-page production build                              |
+| **Vitest + jsdom**              | Live HTML/DOM/CSS tests via `npm run test:watch` and `npm test`               |
+| **Prettier + HTML/CSS linters** | Consistent formatting and automated markup/stylesheet checks                  |
+| **Tailwind CSS v4**             | Utility-first CSS framework introduced in Week 7 (`@tailwindcss/vite`)        |
+| **AWS CloudFront**              | Course hosting via GitHub Actions (replaces legacy FTP uploads)               |
+| **Browser DevTools + axe**      | Layout inspection, Accessibility Tree, Lighthouse, and performance auditing   |
 
 Students should create a GitHub account using their COCC email and apply for the
 [GitHub Student Developer Pack](https://education.github.com/pack) in Week 1.
@@ -55,39 +56,47 @@ Students should create a GitHub account using their COCC email and apply for the
 ### Starter Kit
 
 Scaffolded in Week 1 from the course template repository. Students create a private repository from
-the template, add `artzte` as a collaborator, clone via GitHub Desktop or VS Code (HTTPS—no SSH key
-or WSL setup required), and run `npm install`.
+the template, add `artzte` as a collaborator, clone via HTTPS (no SSH key or WSL setup required),
+and run `npm install`.
 
 **`package.json` scripts:**
 
 ```json
 {
   "scripts": {
+    "start": "vite",
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
+    "test": "vitest run",
+    "test:watch": "vitest",
     "lint": "npm run lint:html && npm run lint:css",
-    "lint:html": "html-validate \"**/*.html\"",
-    "lint:css": "stylelint \"**/*.css\"",
+    "lint:html": "html-validate \"*.html\"",
+    "lint:css": "stylelint \"src/**/*.css\"",
     "format": "prettier --write .",
-    "format:check": "prettier --check ."
+    "format:check": "prettier --check .",
+    "check": "npm run lint && npm run format:check && npm test && npm run build"
   }
 }
 ```
 
 ## Assessment
 
-| Component                                 | Weight |
-| ----------------------------------------- | ------ |
-| Weekly Quizzes (10 × 5 short-essay items) | 20%    |
-| Weekly Assignments (9 weeks; 1 bye week)  | 40%    |
-| Final Project (4 equal milestones)        | 40%    |
+| Component                                              | Weight |
+| ------------------------------------------------------ | ------ |
+| Weekly Quizzes (10 × 5 short-essay items)              | 20%    |
+| Weekly Assignments (9 assignments; Week 9 is bye week) | 40%    |
+| Final Project (4 equal milestones)                     | 40%    |
 
 - There is **no midterm exam and no final exam**.
 - Weekly quizzes and assignments are due at 11:59 PM on the Monday following each instructional week
   (shifted to **Tuesday, January 19** for Week 2 due to MLK Day).
-- You may take one **bye week** during the term to skip one weekly assignment for full credit (does
-  not apply to quizzes or Final Project milestones).
+- **Class catch-up / bye week (Week 9):** The third week from the end of the term has a lecture and
+  quiz only—no weekly assignment—so students can catch up on prior work and advance the Final
+  Project.
+- **Individual assignment skip request:** In addition, you may request to skip **one** weekly
+  assignment of your choice during the term and receive **full credit** on it (email me to request
+  your skip; applies to weekly assignments only, not quizzes or Final Project milestones).
 - Late work is accepted without penalty through Sunday, March 14 (before Finals Week).
 
 ## Final Project
@@ -124,8 +133,8 @@ the PR link (and live CloudFront preview URL once deployed) on Canvas.
 - **SEO & Performance:** Per-page `<title>` and meta descriptions, Open Graph tags, JSON-LD
   structured data (`LocalBusiness` or `Organization`), `robots.txt`, `sitemap.xml`, and Lighthouse
   scores of 90+ across Performance, Accessibility, Best Practices, and SEO.
-- **Tooling & Deployment:** Passes `npm run build`, `npm run lint`, and `npm run format:check`,
-  deployed to CloudFront via GitHub Actions, and showcased from the student's Week 9 developer
+- **Tooling & Deployment:** Passes `npm run check` (`lint`, `format:check`, `test`, and `build`),
+  deployed to CloudFront via GitHub Actions, and showcased from the student's Week 10 developer
   portfolio.
 
 ---
@@ -449,53 +458,61 @@ Canvas.
 
 ---
 
-### Week 9 (Mar 1 – Mar 7) — Developer Portfolio & Production Launch Concepts
+### Week 9 (Mar 1 – Mar 7) — Production Launch & Pre-Launch Auditing (Bye / Catch-Up Week)
 
-**Due:** Monday, March 8
+_This is a built-in bye / catch-up week (the third week from the end of the term). There is a short
+lecture and a quiz, and **no weekly assignment**, so students can catch up on any missing weekly
+work and make strong progress on their Final Project._
+
+**Due:** Monday, March 8 _(Quiz 9 only)_
+
+**Reading:**
+
+- [MDN: Publishing Your Website](https://developer.mozilla.org/en-US/docs/Learn_web_development/Getting_started/Your_first_website/Publishing_your_website)
+
+**Instructor example:** The complete instructor multi-page business site example
+(`examples/final-project/`) is published before Week 9 starts so students have a full reference to
+study during catch-up week.
+
+**Topics (short lecture + walkthrough):**
+
+- Production launch fundamentals: custom domains, DNS records (A/CNAME), HTTPS/TLS certificates, and
+  how CDNs like CloudFront serve static sites globally
+- Pre-launch QA checklist: HTML/CSS validation (`npm run check`), keyboard-only navigation pass, axe
+  DevTools audit, Lighthouse 90+ check across all four categories, and cross-browser verification
+  (Chromium + Firefox/Safari)
+- Reviewing Git diffs and running an adversarial AI code review on your PR before submitting
+
+**Quiz 9:** How DNS connects a custom domain to hosting, why HTTPS matters even on static sites,
+what a CDN does, pre-launch accessibility/Lighthouse checks, and using PR diffs to review changes.
+
+---
+
+### Week 10 (Mar 8 – Mar 14) — Developer Portfolio & Final Launch Prep
+
+**Due:** Monday, March 15
 
 **Reading:**
 
 - [web.dev Learn Responsive Design: UI Patterns](https://web.dev/learn/design/ui-patterns)
-- [MDN: Publishing Your Website](https://developer.mozilla.org/en-US/docs/Learn_web_development/Getting_started/Your_first_website/Publishing_your_website)
 
 **Topics:**
 
-- What makes a strong junior web developer portfolio: live deployed projects, concise case studies
-  (problem, layout/accessibility/performance decisions, link to code and live site), clean GitHub
-  profile and READMEs
-- Production launch basics: custom domains, DNS records (A/CNAME), HTTPS/TLS certificates, and how
-  CDNs like CloudFront serve static sites globally
-- Reviewing and polishing prior work (buffer time to catch up on any missing weekly assignments)
+- What makes a strong junior web developer portfolio: live deployed projects, concise technical case
+  studies (problem, layout/accessibility/performance decisions, link to code and live site), clean
+  GitHub profile and READMEs
+- Linking your live CloudFront projects and Final Project cleanly from one personal showcase
+- Final-push Q&A and walkthrough of the instructor reference Final Project before Finals Week PR
+  submission
 
 **Assignment 9 (Web Developer Portfolio):** Build and deploy your personal **Web Developer
 Portfolio** showcasing at least three projects from this course (including a featured card linking
 to your live Final Project), brief technical case-study notes for each project, an accessible about
 and contact section, responsive layout, and Lighthouse scores of 90+.
 
-**Quiz 9:** What belongs in a project case study beyond a screenshot, how DNS connects a custom
-domain to hosting, why HTTPS matters even on static sites, and what a CDN does.
-
----
-
-### Week 10 (Mar 8 – Mar 14) — Final Project Workshop & Pre-Launch Auditing
-
-_This is a workshop and catch-up week. There is **no weekly assignment** and **no new reading**, so
-students have dedicated time to finish and audit their Final Project and clear any late work before
-Finals Week._
-
-**Instructor example:** The complete instructor multi-page business site example
-(`examples/final-project/`) is published before Week 10 starts as a reference.
-
-**Topics (short lecture + walkthrough):**
-
-- Pre-launch QA checklist: HTML validation, Stylelint/Prettier, keyboard-only navigation pass, axe
-  DevTools audit, Lighthouse 90+ check across all four categories
-- Cross-browser sanity check (Chromium + Firefox/Safari) and real mobile viewport check
-- Reviewing Git diffs and running an adversarial AI code review on your PR before opening your final
-  submission
-
-**Quiz 10 (due Monday, Mar 15):** Short synthesis quiz on pre-launch QA—accessibility verification,
-cross-browser testing, Lighthouse diagnostics, and using PR diffs to review changes before shipping.
+**Quiz 10:** What belongs in a technical project case study beyond a screenshot, showcasing
+accessibility and performance work effectively, clean repository READMEs, and final pre-submission
+verification.
 
 ---
 
@@ -519,7 +536,7 @@ cross-browser testing, Lighthouse diagnostics, and using PR diffs to review chan
 | Outcome (exact catalog language)                                                                           | Weeks                   |
 | ---------------------------------------------------------------------------------------------------------- | ----------------------- |
 | Utilize the most recent HTML elements and CSS properties to create and style webpage content               | 1, 2, 3, 5, 6, 7, Final |
-| Plan, construct, and style webpage layouts for multiple devices and users                                  | 2, 3, 4, 6, 9, Final    |
+| Plan, construct, and style webpage layouts for multiple devices and users                                  | 2, 3, 4, 6, 10, Final   |
 | Construct website features commonly found on large website projects                                        | 5, 6, 7, Final          |
 | Integrate site management concepts such as SEO and accessibility into a website’s plan, layout, and design | 1, 4, 8, 9, 10, Final   |
 
@@ -527,12 +544,12 @@ cross-browser testing, Lighthouse diagnostics, and using PR diffs to review chan
 
 | Content Outline Topic                     | Weeks                                         |
 | ----------------------------------------- | --------------------------------------------- |
-| Usability and user experience             | 4, 6, 9, Final                                |
+| Usability and user experience             | 4, 6, 10, Final                               |
 | Mobile web design                         | 3, 5, 6, Final                                |
 | Advanced HTML elements and CSS properties | 1, 2, 3, 5, 6                                 |
 | Efficient HTML/CSS syntax                 | 1, 2, 7                                       |
 | CSS extension languages                   | 2 (Sass/PostCSS context), 7 (Tailwind CSS v4) |
 | Large-scale navigation menus              | 5, Final                                      |
-| Search Engine Optimization (SEO)          | 8, 10, Final                                  |
+| Search Engine Optimization (SEO)          | 8, 9, Final                                   |
 | Designing web forms                       | 6, Final                                      |
-| Web developer’s portfolio                 | 9, 11 (Final showcase)                        |
+| Web developer’s portfolio                 | 10, 11 (Final showcase)                       |

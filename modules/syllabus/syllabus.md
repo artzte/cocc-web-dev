@@ -119,10 +119,11 @@ Additionally, you will need:
 - **Week 8 (Feb 22–28) — SEO, Performance & Site Management** — Metadata, Open Graph, JSON-LD
   (`Schema.org`), `robots.txt`/`sitemap.xml`, Core Web Vitals (LCP/CLS), Lighthouse audits; _Final
   Project Milestone 3 (Initial Structure & Test Deploy) due Mon, Mar 1_
-- **Week 9 (Mar 1–7) — Developer Portfolio & Production Launch Concepts** — Personal web developer
-  portfolio with technical case studies, DNS/HTTPS/CDN fundamentals
-- **Week 10 (Mar 8–14) — Final Project Workshop & Pre-Launch Auditing (catch-up week)** — No weekly
-  assignment; complete pre-launch QA and catch up on any missing work before Finals Week
+- **Week 9 (Mar 1–7) — Production Launch & Pre-Launch Auditing (Bye / Catch-Up Week)** — Short
+  lecture on DNS/HTTPS/CDN and pre-launch QA plus Quiz 9; **no weekly assignment** so you can catch
+  up on missing work and advance your Final Project
+- **Week 10 (Mar 8–14) — Developer Portfolio & Final Launch Prep** — Personal web developer
+  portfolio with technical case studies linking your live Final Project and course work
 - **Week 11 (Mar 15–19, Finals Week) — Final Project Review & Approval** — _Final Project Milestone
   4: Initial PR Mon Mar 15 -> review comments Wed Mar 17 -> PR approval Fri Mar 19_
 
@@ -151,11 +152,17 @@ reach out whenever you hit a snag. I will accept, and will not penalize, late we
 Sunday, March 14 (before Finals Week)—though getting behind makes catching up much harder.
 
 - **Weekly quizzes (10):** 20%
-- **Weekly assignments (9):** 40%
+- **Weekly assignments (9; Week 9 is a built-in bye / catch-up week with lecture and quiz only):**
+  40%
 - **Final project (4 equal milestones):** 40%
 
-You may take one **bye week** during the term to skip one weekly assignment for full credit. The
-final project milestones and quizzes are all required.
+**Bye week & assignment skip policy:**
+
+- **Class catch-up week (Week 9):** The third week from the end of the term has a lecture and quiz
+  only—no weekly assignment—so everyone has built-in time to catch up and work on the Final Project.
+- **Individual assignment skip:** In addition, you may email me to **request** to skip **one**
+  weekly assignment during the term and receive **full credit** on it. This applies to weekly
+  assignments only—all quizzes and Final Project milestones are required.
 
 ### Help on Assignments
 

@@ -362,7 +362,42 @@ By the end of this module you will be able to:
 
 ---
 
-# Week 9: Developer Portfolio & Production Launch Concepts
+# Week 9: Production Launch & Pre-Launch Auditing (Bye / Catch-Up Week)
+
+## Module Learning Objectives
+
+By the end of this module you will be able to:
+
+1. Explain how custom domains, DNS records, HTTPS/TLS, and CDNs work together to serve a production
+   website
+2. Execute a complete pre-launch QA pass covering HTML/CSS validation, keyboard accessibility, axe
+   DevTools, Lighthouse, and cross-browser verification
+3. Review a Pull Request diff (including evaluating adversarial AI code review feedback) before
+   shipping
+
+## Assessments
+
+- Quiz 9: DNS, HTTPS on static sites, CDN fundamentals, pre-launch QA, and diff review
+- _No weekly assignment (built-in catch-up week, third week from the end of the term)_
+
+## Activities
+
+- Video: Domains, DNS, HTTPS, and how CloudFront serves your site
+- Video: Walkthrough of the instructor reference Final Project and full pre-launch audit pass
+
+## Learning Materials
+
+- [MDN: Publishing Your Website](https://developer.mozilla.org/en-US/docs/Learn_web_development/Getting_started/Your_first_website/Publishing_your_website)
+- Instructor reference Final Project (`examples/final-project/`)
+
+## Course Outcomes Supported
+
+- **CO4:** Integrate site management concepts such as SEO and accessibility into a website’s plan,
+  layout, and design.
+
+---
+
+# Week 10: Developer Portfolio & Final Launch Prep
 
 ## Module Learning Objectives
 
@@ -370,59 +405,29 @@ By the end of this module you will be able to:
 
 1. Plan, design, and deploy a personal web developer portfolio highlighting live projects and
    concise technical case studies
-2. Explain how custom domains, DNS records, HTTPS/TLS, and CDNs work together to serve a production
-   website
+2. Present layout, accessibility, and performance decisions clearly in project documentation and
+   READMEs
 
 ## Assessments
 
-- Quiz 9: Technical case studies, DNS, HTTPS on static sites, and CDN fundamentals
+- Quiz 10: Technical case studies, documenting accessibility/performance decisions, and final launch
+  verification
 - Assignment 9: Personal Web Developer Portfolio deployed to CloudFront and linking live course
-  projects
+  projects (including the Final Project)
 
 ## Activities
 
 - Video: Designing a focused junior web developer portfolio and writing strong READMEs/case studies
-- Video: Domains, DNS, HTTPS, and how CloudFront serves your site
 
 ## Learning Materials
 
 - [web.dev Learn Responsive Design: UI Patterns](https://web.dev/learn/design/ui-patterns)
-- [MDN: Publishing Your Website](https://developer.mozilla.org/en-US/docs/Learn_web_development/Getting_started/Your_first_website/Publishing_your_website)
 
 ## Course Outcomes Supported
 
 - **CO2:** Plan, construct, and style webpage layouts for multiple devices and users.
 - **CO4:** Integrate site management concepts such as SEO and accessibility into a website’s plan,
   layout, and design.
-
----
-
-# Week 10: Final Project Workshop & Pre-Launch Auditing
-
-## Module Learning Objectives
-
-By the end of this module you will be able to:
-
-1. Execute a complete pre-launch QA pass covering HTML/CSS validation, keyboard accessibility, axe
-   DevTools, Lighthouse, and cross-browser verification
-2. Review a Pull Request diff (including evaluating adversarial AI code review feedback) before
-   shipping
-
-## Assessments
-
-- Quiz 10: Pre-launch QA, accessibility and SEO verification, cross-browser checks, and diff review
-
-## Activities
-
-- Video: Walkthrough of the instructor reference Final Project and full pre-launch audit pass
-
-## Learning Materials
-
-- Instructor reference Final Project (`examples/final-project/`)
-
-## Course Outcomes Supported
-
-- **CO1, CO2, CO3, CO4** (comprehensive synthesis and quality verification)
 
 ---
 

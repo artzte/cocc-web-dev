@@ -174,17 +174,25 @@ examples, docs):
 
 ### Starter Kit & Tooling
 
-- **Vite** (multi-page HTML dev server + build, near-zero config)
+- **Vite** (multi-page HTML dev server + build, near-zero config) + **Vitest** (`jsdom`) for live
+  DOM/HTML/CSS tests via `npm run test:watch`
 - **Prettier** (consistent formatting) + lightweight HTML/CSS linting (`html-validate`, `stylelint`)
 - **GitHub Actions -> AWS CloudFront** course hosting (live preview URL for every student)
 - **Tailwind CSS v4** (`@tailwindcss/vite`) introduced in Week 7; pure modern native CSS in Weeks
   1–6
-- Standard scripts from Day 1: `npm run dev`, `npm run build`, `npm run lint`, `npm run format`
+- Standard scripts from Day 1: `npm run dev`, `npm run test:watch`, `npm test`, `npm run build`,
+  `npm run lint`, `npm run format`, `npm run check`
 
 ### Assessment & AI Policy
 
-- **Grading weights:** Weekly Quizzes 20% (10 short-essay quizzes), Weekly Assignments 40% (1 bye
-  week allowed), Final Project 40% (4 equal milestones). No midterm or final exam.
+- **Grading weights:** Weekly Quizzes 20% (10 short-essay quizzes), Weekly Assignments 40% (9 weekly
+  assignments across the term), Final Project 40% (4 equal milestones). No midterm or final exam.
+- **Built-in catch-up / bye week (Week 9):** The third week from the end of the term has a lecture
+  and quiz only—no weekly assignment—so students can catch up on prior work and build out the Final
+  Project.
+- **Individual assignment skip policy:** Students may also request to skip one weekly assignment
+  during the term and receive full credit on it (weekly assignments only; does not apply to quizzes
+  or Final Project milestones).
 - **Late work:** Accepted without penalty through Week 10 (before Finals Week).
 - **Student AI policy:** Students may not use GenAI to produce assignments, quizzes, or the final
   project. Two explicit exceptions: (1) troubleshooting local IT/environment setup issues (Git,
@@ -204,7 +212,7 @@ examples, docs):
   - Milestone 3 (Week 8, due Mon Mar 1): Initial Structure & Test Deployment (live CloudFront URL)
   - Milestone 4 (Week 11, Finals Week): Initial PR Mon Mar 15 -> comments Wed Mar 17 -> approval Fri
     Mar 19
-- **Developer Portfolio (Week 9):** Built and deployed as the student's personal showcase linking
+- **Developer Portfolio (Week 10):** Built and deployed as the student's personal showcase linking
   their live CloudFront business site and selected weekly projects, fulfilling the catalog's "Web
   developer's portfolio" requirement cleanly without crowding the business-site capstone.
 
@@ -240,9 +248,10 @@ assignment. Matching lecture guides go in `lectures/`, starter fixtures and DevT
 - **Write requirements as nested bullet lists**, not dense paragraphs.
 - Standard submission loop: switch to `main` and pull latest (so prior merged PRs are included),
   create a branch, scaffold via `npm run weekly:create weekN` (preferred; never tell students to
-  manually copy `starter/`), `npm run dev` / `npm run format` / `npm run check`, open PR with
-  **artzte** as reviewer, submit PR URL on Canvas. Present weekly CLI commands in a commented fenced
-  code block rather than mixed into an ordered list.
+  manually copy `starter/`), run `npm run dev` alongside `npm run test:watch` (in a second terminal
+  tab so tests update live as students make changes), run `npm run format` and `npm run check`, open
+  PR with **artzte** as reviewer, submit PR URL on Canvas. Present weekly CLI commands in a
+  commented fenced code block rather than mixed into an ordered list.
 
 ### HTML & CSS Style in Examples and Solutions
 
