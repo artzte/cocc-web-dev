@@ -153,6 +153,10 @@ examples, docs):
 - **Version control and automated deployment replace FTP.** Git/GitHub PR workflows and automated
   deploys to CloudFront via GitHub Actions start in Week 1. Mention SFTP briefly as legacy shared
   hosting context only.
+- **Respect browser navigation, URLs, and history.** Teach how the browser history stack, URL paths,
+  hash fragments, and query parameters uphold user expectations—hitting Back should restore the
+  prior view, and opening a bookmark should restore the bookmarked view. Emphasize never breaking
+  browser navigation with fake links or un-addressable view state.
 - **Accessibility and performance are engineering disciplines, not checklists.** DevTools (Grid/Flex
   overlays, Accessibility Tree, Lighthouse, Network throttling) and axe DevTools are woven across
   the term.
@@ -161,11 +165,12 @@ examples, docs):
 
 - Recommended prep is CIS 195 (basic HTML/CSS, folder/file management, publishing pages). Do not
   assume CLI fluency, WSL, `nodenv`, or programming background.
-- **Low-friction Week 1 path:** Lead with **GitHub Desktop** or **VS Code Source Control** (HTTPS
-  browser sign-in, no SSH keys required) and standard cross-platform Node LTS, with CLI Git and
-  GitHub Codespaces documented as optional paths.
-- Keep the Git loop small and consistent every week: `pull main` -> `branch` -> `commit` -> `push`
-  -> `open PR` (with `artzte` as reviewer).
+- **Low-friction Week 1 path:** Use HTTPS Git in VS Code's integrated terminal (browser sign-in, no
+  SSH keys, WSL, or `nodenv` required) and standard cross-platform Node LTS, with VS Code Source
+  Control and GitHub Desktop mentioned as optional GUIs (don't prescribe specific GitHub Desktop
+  menu clicks, since the instructor runs Ubuntu Linux).
+- Keep the Git loop small and consistent every week: `pull main` -> `branch` ->
+  `npm run weekly:create weekN` -> `commit` -> `push` -> `open PR` (with `artzte` as reviewer).
 
 ### Starter Kit & Tooling
 
@@ -234,8 +239,10 @@ assignment. Matching lecture guides go in `lectures/`, starter fixtures and DevT
   choices, semantic structure variations that still pass accessibility checks).
 - **Write requirements as nested bullet lists**, not dense paragraphs.
 - Standard submission loop: switch to `main` and pull latest (so prior merged PRs are included),
-  create a branch, scaffold folder, `npm run dev` / `npm run lint` / `npm run format`, open PR with
-  **artzte** as reviewer, submit PR URL on Canvas.
+  create a branch, scaffold via `npm run weekly:create weekN` (preferred; never tell students to
+  manually copy `starter/`), `npm run dev` / `npm run format` / `npm run check`, open PR with
+  **artzte** as reviewer, submit PR URL on Canvas. Present weekly CLI commands in a commented fenced
+  code block rather than mixed into an ordered list.
 
 ### HTML & CSS Style in Examples and Solutions
 

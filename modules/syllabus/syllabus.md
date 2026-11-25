@@ -78,8 +78,9 @@ Additionally, you will need:
   [GitHub Education benefits](https://github.com/settings/education/benefits) using your COCC email
   early in Week 1. For digital accessibility information, see
   [GitHub Education accessibility conformance](https://accessibility.github.com/conformance/github-education/).
-- [GitHub Desktop](https://desktop.github.com/download/) or VS Code's built-in Git Source Control
-  (command-line Git is welcome if you prefer it, and Week 1 includes a setup walkthrough video).
+- [Git](https://git-scm.com/downloads) used from VS Code's integrated terminal or Source Control
+  panel (Windows/macOS students may also use [GitHub Desktop](https://desktop.github.com/download/)
+  for day-to-day Git actions if preferred; Week 1 includes a setup walkthrough video).
 
 ## Technology Assistance
 
@@ -106,9 +107,9 @@ Additionally, you will need:
   Queries, responsive `<picture>` media; _Final Project Milestone 1 (Proposal) due Mon, Jan 25_
 - **Week 4 (Jan 25–31) — Usability, UX & Web Accessibility** — WCAG 2.2 AA, keyboard navigation,
   focus states, color contrast, `prefers-reduced-motion`, DevTools Accessibility Tree & axe audits
-- **Week 5 (Feb 1–7) — Large-Scale Navigation & Native UI Primitives** — Multi-level nav,
-  breadcrumbs, footer sitemaps, `<dialog>`, Popover API, `<details name="...">`, minimal progressive
-  JS
+- **Week 5 (Feb 1–7) — Large-Scale Navigation, Browser History & Native UI Primitives** —
+  Multi-level nav, breadcrumbs, footer sitemaps, browser history/URLs/query params & bookmarks,
+  `<dialog>`, Popover API, `<details name="...">`, minimal progressive JS
 - **Week 6 (Feb 8–14) — Designing Accessible Web Forms** — Semantic labels/fieldsets, mobile
   `inputmode`/`autocomplete`, native validation (`:user-valid`/`:user-invalid`), accessible error
   states; _Final Project Milestone 2 (Design Document) due Mon, Feb 15_

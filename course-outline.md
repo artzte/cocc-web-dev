@@ -279,7 +279,7 @@ attributes, why automated tools alone aren't enough, and `prefers-reduced-motion
 
 ---
 
-### Week 5 (Feb 1 – Feb 7) — Large-Scale Navigation & Modern Native UI Primitives
+### Week 5 (Feb 1 – Feb 7) — Large-Scale Navigation, Browser History & Native UI Primitives
 
 **Due:** Monday, February 8
 
@@ -291,11 +291,23 @@ attributes, why automated tools alone aren't enough, and `prefers-reduced-motion
 - [web.dev Learn CSS: Popover and Dialog](https://web.dev/learn/css/popover-and-dialog)
 - [web.dev Learn CSS: Anchor Positioning](https://web.dev/learn/css/anchor-positioning)
 - [web.dev Learn CSS: Transitions](https://web.dev/learn/css/transitions)
+- [MDN: What is a URL?](https://developer.mozilla.org/en-US/docs/Learn_web_development/Howto/Web_mechanics/What_is_a_URL)
+- [MDN: History API](https://developer.mozilla.org/en-US/docs/Web/API/History_API) _(conceptual
+  overview)_
 
 **Topics:**
 
 - Information architecture for large websites: primary nav, multi-column dropdowns/mega-menus,
   breadcrumbs (`aria-current="page"`), mobile drawers, and structured footer sitemaps
+- **Browser history, URLs, query parameters & bookmarks:**
+  - How the browser's session history stack works when users click `<a href>` links, jump to hash
+    fragments (`#section`), or submit `GET` forms (`?category=...&sort=...`)
+  - The user contract of the web: hitting the **Back button** must restore the previous view, and
+    **reloading or opening a bookmark** must restore the exact view that was bookmarked
+  - Why web apps should not break browser navigation (avoiding fake `<div>` links or trapping
+    shareable view state purely in memory without reflecting it in the URL), and deciding which
+    state belongs in the URL (paths, query params, hashes) vs. ephemeral UI (`<dialog>`, `popover`,
+    `<details>`)
 - Native `<details>` and `<summary>` (including exclusive accordions with matching `name`
   attributes)
 - Native `<dialog>` modals: top layer, `::backdrop`, Escape key dismissal, and built-in focus return
@@ -305,13 +317,15 @@ attributes, why automated tools alone aren't enough, and `prefers-reduced-motion
   where HTML alone needs a one-line trigger
 
 **Assignment 5:** Build a large-site navigation and interactive disclosure shell (site map fixture
-in `examples/week5/`) featuring: a responsive header with a desktop category dropdown using the
-Popover API, a mobile drawer or quick-info modal using `<dialog>`, accessible breadcrumbs, a
-multi-column footer sitemap, and an FAQ accordion using `<details name="...">`.
+in `examples/week5/`) featuring: a responsive header with real `<a href>` links and a desktop
+category dropdown using the Popover API, a mobile drawer or quick-info modal using `<dialog>`,
+accessible breadcrumbs, bookmarkable section fragment links (`#...`) or `GET` filter query links
+that work cleanly with the browser Back button, a multi-column footer sitemap, and an FAQ accordion
+using `<details name="...">`.
 
-**Quiz 5:** Why native `<dialog>` beats a custom `<div>` modal, Popover API vs. modal `<dialog>`,
-`aria-current="page"`, exclusive `<details>` accordions, and keeping multi-level navigation usable
-on touch and keyboard devices.
+**Quiz 5:** How the browser history stack and Back button work with links/query params/hashes, why
+bookmarkable views matter, why native `<dialog>` beats a custom `<div>` modal, Popover API vs. modal
+`<dialog>`, and `aria-current="page"`.
 
 ---
 

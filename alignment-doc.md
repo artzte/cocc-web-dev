@@ -184,7 +184,7 @@ By the end of this module you will be able to:
 
 ---
 
-# Week 5: Large-Scale Navigation & Modern Native UI Primitives
+# Week 5: Large-Scale Navigation, Browser History & Native UI Primitives
 
 ## Module Learning Objectives
 
@@ -192,21 +192,24 @@ By the end of this module you will be able to:
 
 1. Design and build multi-level navigation systems for large websites (desktop menus, mobile
    drawers, breadcrumbs, footer sitemaps)
-2. Construct accessible modals, dropdowns, and exclusive accordions using native `<dialog>`, the
+2. Explain how the browser history stack, URLs, hash fragments, and query parameters preserve user
+   expectations for the Back button and bookmarks—and avoid breaking them
+3. Construct accessible modals, dropdowns, and exclusive accordions using native `<dialog>`, the
    Popover API, and `<details>`/`<summary>`
-3. Apply CSS Anchor Positioning and motion-safe transitions to interactive UI components
-4. Wire minimal progressive-enhancement JavaScript where native HTML controls need a trigger
+4. Apply CSS Anchor Positioning, motion-safe transitions, and minimal progressive-enhancement
+   JavaScript where native HTML controls need a trigger
 
 ## Assessments
 
-- Quiz 5: Native `<dialog>` vs. custom modals, Popover API, `aria-current="page"`, exclusive
-  `<details>`, and accessible multi-level navigation
+- Quiz 5: Browser history stack, bookmarks and query params, native `<dialog>` vs. custom modals,
+  Popover API, and `aria-current="page"`
 - Assignment 5: Large-site header/footer navigation shell with Popover dropdowns, `<dialog>` mobile
-  drawer, breadcrumbs, and `<details name="...">` FAQ accordion
+  drawer, breadcrumbs, bookmarkable/Back-button-safe navigation links, and `<details name="...">`
+  FAQ accordion
 
 ## Activities
 
-- Video: Large-site navigation patterns (desktop mega-menus to mobile drawers)
+- Video: Large-site navigation patterns, browser history, bookmarks, and URLs as state
 - Video: Building accessible modals and popovers with `<dialog>`, `popover`, and `<details>`
 
 ## Learning Materials
@@ -217,6 +220,8 @@ By the end of this module you will be able to:
 - [web.dev Learn CSS: Popover and Dialog](https://web.dev/learn/css/popover-and-dialog)
 - [web.dev Learn CSS: Anchor Positioning](https://web.dev/learn/css/anchor-positioning)
 - [web.dev Learn CSS: Transitions](https://web.dev/learn/css/transitions)
+- [MDN: What is a URL?](https://developer.mozilla.org/en-US/docs/Learn_web_development/Howto/Web_mechanics/What_is_a_URL)
+- [MDN: History API](https://developer.mozilla.org/en-US/docs/Web/API/History_API)
 
 ## Course Outcomes Supported
 
