@@ -9,9 +9,11 @@ Run these from inside your project folder (for example, `projects/week1/`):
 ```bash
 npm install         # Install dev tools (first time in a project folder)
 npm run dev         # Start local Vite dev server with live reload
+npm run test:watch  # Run Vitest in watch mode for live test feedback as you edit
+npm test            # Run the test suite once
 npm run lint        # Validate HTML (html-validate) and CSS (stylelint)
 npm run format      # Format HTML, CSS, JS, and Markdown with Prettier
-npm run check       # Run lint + format:check + production build
+npm run check       # Run lint + format:check + tests + production build
 npm run build       # Build production files into dist/
 ```
 

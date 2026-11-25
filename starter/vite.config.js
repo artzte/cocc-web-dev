@@ -24,4 +24,7 @@ export default defineConfig({
       input: htmlInputs,
     },
   },
+  test: {
+    environment: 'jsdom',
+  },
 })

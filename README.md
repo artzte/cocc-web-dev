@@ -154,8 +154,15 @@ npm install
 npm run dev
 ```
 
-Open the local URL Vite prints in Chrome (`http://localhost:5173`). To verify linting, formatting,
-and the production build:
+Open the local URL Vite prints in Chrome (`http://localhost:5173`). In a second terminal tab, start
+live test feedback so tests re-run automatically whenever you save a file:
+
+```bash
+cd starter
+npm run test:watch
+```
+
+To verify linting, formatting, tests, and the production build in one pass:
 
 ```bash
 npm run check
@@ -182,11 +189,14 @@ cd projects/week1
 npm install
 npm run dev
 
-# 5. Format, lint, and verify the production build before committing
+# 5. In a second terminal tab inside projects/week1, run tests in watch mode for live feedback
+npm run test:watch
+
+# 6. Format, lint, test, and verify the production build before committing
 npm run format
 npm run check
 
-# 6. Stage, commit, and push your branch to GitHub
+# 7. Stage, commit, and push your branch to GitHub
 git add .
 git commit -m "feat: complete week1 assignment"
 git push -u origin week1
