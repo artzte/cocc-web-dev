@@ -58,8 +58,7 @@ examples, docs):
 
 - Every reference to a `web.dev` Learn module or MDN article MUST be a working Markdown link with
   the full series and module title as the link text—no short forms like "Learn CSS Ch3". For
-  example:
-  `[web.dev Learn CSS: Container Queries](https://web.dev/learn/css/container-queries)`.
+  example: `[web.dev Learn CSS: Container Queries](https://web.dev/learn/css/container-queries)`.
 - Keep links strictly to verified URLs from the list below (or verified official MDN / Tailwind /
   Google Search Central URLs).
 
@@ -173,8 +172,8 @@ examples, docs):
 - **Vite** (multi-page HTML dev server + build, near-zero config)
 - **Prettier** (consistent formatting) + lightweight HTML/CSS linting (`html-validate`, `stylelint`)
 - **GitHub Actions -> AWS CloudFront** course hosting (live preview URL for every student)
-- **Tailwind CSS v4** (`@tailwindcss/vite`) introduced in Week 7; pure modern native CSS in
-  Weeks 1–6
+- **Tailwind CSS v4** (`@tailwindcss/vite`) introduced in Week 7; pure modern native CSS in Weeks
+  1–6
 - Standard scripts from Day 1: `npm run dev`, `npm run build`, `npm run lint`, `npm run format`
 
 ### Assessment & AI Policy
@@ -199,8 +198,8 @@ examples, docs):
   - Milestone 4 (Week 11, Finals Week): Initial PR Mon Mar 15 -> comments Wed Mar 17 -> approval Fri
     Mar 19
 - **Developer Portfolio (Week 9):** Built and deployed as the student's personal showcase linking
-  their live CloudFront business site and selected weekly projects, fulfilling the catalog's
-  "Web developer's portfolio" requirement cleanly without crowding the business-site capstone.
+  their live CloudFront business site and selected weekly projects, fulfilling the catalog's "Web
+  developer's portfolio" requirement cleanly without crowding the business-site capstone.
 
 ## Authoring Conventions for Weekly Content
 

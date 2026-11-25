@@ -9,12 +9,12 @@ websites suitable for businesses and organizations. Explore web development's mo
 techniques useful for improving usability and user experience. Plan and design websites for desktop
 and mobile users.
 
-| Objective | Description                                                                                                |
-| --------- | ---------------------------------------------------------------------------------------------------------- |
-| CO1       | Utilize the most recent HTML elements and CSS properties to create and style webpage content.              |
-| CO2       | Plan, construct, and style webpage layouts for multiple devices and users.                                 |
-| CO3       | Construct website features commonly found on large website projects.                                       |
-| CO4       | Integrate site management concepts such as SEO and accessibility into a website’s plan, layout, and design.|
+| Objective | Description                                                                                                 |
+| --------- | ----------------------------------------------------------------------------------------------------------- |
+| CO1       | Utilize the most recent HTML elements and CSS properties to create and style webpage content.               |
+| CO2       | Plan, construct, and style webpage layouts for multiple devices and users.                                  |
+| CO3       | Construct website features commonly found on large website projects.                                        |
+| CO4       | Integrate site management concepts such as SEO and accessibility into a website’s plan, layout, and design. |
 
 ---
 

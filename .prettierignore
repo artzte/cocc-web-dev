@@ -1,0 +1,7 @@
+# Dependency and build output
+node_modules/
+dist/
+infra/cdk.out/
+
+# Local agent / editor configs
+.claude/

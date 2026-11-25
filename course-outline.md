@@ -25,8 +25,8 @@ and mobile users.
 ## Key Winter 2027 Calendar Dates
 
 - **First day of classes:** Monday, January 4, 2027 (Week 1)
-- **Martin Luther King Jr. Day (college closed):** Monday, January 18, 2027 *(Week 2 quiz and
-  assignment due date shifts to Tuesday, January 19)*
+- **Martin Luther King Jr. Day (college closed):** Monday, January 18, 2027 _(Week 2 quiz and
+  assignment due date shifts to Tuesday, January 19)_
 - **Last day to drop with no grade on transcript:** Friday, February 19, 2027 (end of Week 7)
 - **Last day to drop with a W grade:** Wednesday, March 10, 2027 (Week 10)
 - **Finals Week (Final Project Review & Approval):** Monday, March 15 – Friday, March 19, 2027
@@ -38,16 +38,16 @@ There is no paid textbook. Assigned readings use Google's free
 [web.dev Learn](https://web.dev/learn) series, [MDN Web Docs](https://developer.mozilla.org/), and
 official Tailwind CSS and Google Search Central documentation.
 
-| Tool                           | Purpose                                                                      |
-| ------------------------------ | ---------------------------------------------------------------------------- |
-| **VS Code**                    | Code editor (with built-in Git Source Control and Live/Vite integration)     |
-| **Git + GitHub**               | Version control and PR-based submissions (GitHub Desktop or VS Code + HTTPS) |
-| **Node.js (LTS) / npm**        | Running the starter kit, linters, formatter, and build scripts               |
-| **Vite**                       | Local dev server and multi-page production build                             |
-| **Prettier + HTML/CSS linters**| Consistent formatting and automated markup/stylesheet checks                 |
-| **Tailwind CSS v4**            | Utility-first CSS framework introduced in Week 7 (`@tailwindcss/vite`)       |
-| **AWS CloudFront**             | Course hosting via GitHub Actions (replaces legacy FTP uploads)              |
-| **Browser DevTools + axe**     | Layout inspection, Accessibility Tree, Lighthouse, and performance auditing  |
+| Tool                            | Purpose                                                                      |
+| ------------------------------- | ---------------------------------------------------------------------------- |
+| **VS Code**                     | Code editor (with built-in Git Source Control and Live/Vite integration)     |
+| **Git + GitHub**                | Version control and PR-based submissions (GitHub Desktop or VS Code + HTTPS) |
+| **Node.js (LTS) / npm**         | Running the starter kit, linters, formatter, and build scripts               |
+| **Vite**                        | Local dev server and multi-page production build                             |
+| **Prettier + HTML/CSS linters** | Consistent formatting and automated markup/stylesheet checks                 |
+| **Tailwind CSS v4**             | Utility-first CSS framework introduced in Week 7 (`@tailwindcss/vite`)       |
+| **AWS CloudFront**              | Course hosting via GitHub Actions (replaces legacy FTP uploads)              |
+| **Browser DevTools + axe**      | Layout inspection, Accessibility Tree, Lighthouse, and performance auditing  |
 
 Students should create a GitHub account using their COCC email and apply for the
 [GitHub Student Developer Pack](https://education.github.com/pack) in Week 1.
@@ -102,12 +102,12 @@ the PR link (and live CloudFront preview URL once deployed) on Canvas.
 
 ### Milestones
 
-| #   | Week                 | Due Date                                                                | Deliverable                                                                                            | Submit                                        |
-| --- | -------------------- | ----------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------ | --------------------------------------------- |
-| 1   | Week 3 (Jan 18–24)   | **Mon, Jan 25**                                                         | **Proposal** — business/org concept, target audience, site map (≥4 pages), core user tasks             | PR with `projects/final/README.md`            |
-| 2   | Week 6 (Feb 8–14)    | **Mon, Feb 15**                                                         | **Design Document** — mobile/desktop wireframes, design tokens & contrast ratios, nav & form plan      | PR updating `projects/final/README.md`        |
-| 3   | Week 8 (Feb 22–28)   | **Mon, Mar 1**                                                          | **Initial Structure (Test Deploy)** — multi-page shell, shared nav/footer, ≥2 styled pages live        | PR + live CloudFront URL on Canvas            |
-| 4   | Week 11 (Mar 15–19)  | **Mon, Mar 15 (PR)**<br>**Wed, Mar 17 (Review)**<br>**Fri, Mar 19 (OK)** | **Final Submission** — complete, accessible, SEO-ready multi-page site deployed and linked on portfolio | Initial PR Mar 15; review Mar 17; approval Mar 19 |
+| #   | Week                | Due Date                                                                 | Deliverable                                                                                             | Submit                                            |
+| --- | ------------------- | ------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------- | ------------------------------------------------- |
+| 1   | Week 3 (Jan 18–24)  | **Mon, Jan 25**                                                          | **Proposal** — business/org concept, target audience, site map (≥4 pages), core user tasks              | PR with `projects/final/README.md`                |
+| 2   | Week 6 (Feb 8–14)   | **Mon, Feb 15**                                                          | **Design Document** — mobile/desktop wireframes, design tokens & contrast ratios, nav & form plan       | PR updating `projects/final/README.md`            |
+| 3   | Week 8 (Feb 22–28)  | **Mon, Mar 1**                                                           | **Initial Structure (Test Deploy)** — multi-page shell, shared nav/footer, ≥2 styled pages live         | PR + live CloudFront URL on Canvas                |
+| 4   | Week 11 (Mar 15–19) | **Mon, Mar 15 (PR)**<br>**Wed, Mar 17 (Review)**<br>**Fri, Mar 19 (OK)** | **Final Submission** — complete, accessible, SEO-ready multi-page site deployed and linked on portfolio | Initial PR Mar 15; review Mar 17; approval Mar 19 |
 
 ### Requirements (Final Submission)
 
@@ -168,7 +168,7 @@ push-to-deploy vs. FTP, and what a linter checks.
 
 ### Week 2 (Jan 11 – Jan 17) — Modern CSS Architecture & Extension Tools
 
-**Due:** **Tuesday, January 19** *(shifted for MLK Day on Monday, Jan 18)*
+**Due:** **Tuesday, January 19** _(shifted for MLK Day on Monday, Jan 18)_
 
 **Reading:**
 
@@ -181,7 +181,8 @@ push-to-deploy vs. FTP, and what a linter checks.
 
 **Topics:**
 
-- Mastering the cascade: `@layer` (reset, base, layout, components, utilities) and `:is()`/`:where()`
+- Mastering the cascade: `@layer` (reset, base, layout, components, utilities) and
+  `:is()`/`:where()`
 - Design tokens with CSS custom properties (color palettes, spacing scales, typography)
 - Native CSS nesting and keeping selectors shallow and maintainable
 - Fluid sizing and modern CSS functions (`clamp()`, `min()`, `max()`, `calc()`)
@@ -195,13 +196,14 @@ a layered architecture (`@layer`) using CSS custom property design tokens, nativ
 `clamp()` typography, and automatic light/dark mode support.
 
 **Quiz 2:** Cascade layers (`@layer`), custom properties vs. preprocessor variables, native CSS
-nesting pitfalls, fluid typography with `clamp()`, and why Sass/PostCSS still appear in legacy repos.
+nesting pitfalls, fluid typography with `clamp()`, and why Sass/PostCSS still appear in legacy
+repos.
 
 ---
 
 ### Week 3 (Jan 18 – Jan 24) — Responsive Layout Systems: Grid, Flexbox & Container Queries
 
-*Note: Monday, January 18 is Martin Luther King Jr. Day (college closed).*
+_Note: Monday, January 18 is Martin Luther King Jr. Day (college closed)._
 
 **Due:** Monday, January 25
 
@@ -332,8 +334,8 @@ on touch and keyboard devices.
 - Semantic form structure: explicit `<label for>`, `<fieldset>`, and `<legend>`
 - Choosing the right controls and modern input types (`email`, `tel`, `url`, `date`, `number`,
   `<datalist>`)
-- Mobile and UX ergonomics: `autocomplete`, `inputmode`, `enterkeyhint`, clear microcopy, single-column
-  vs. grouped layouts
+- Mobile and UX ergonomics: `autocomplete`, `inputmode`, `enterkeyhint`, clear microcopy,
+  single-column vs. grouped layouts
 - Native HTML constraint validation (`required`, `minlength`, `pattern`, `type`) and styling states
   with `:user-valid` / `:user-invalid`
 - Accessible error messaging and helper text (`aria-describedby`, `aria-live`)
@@ -366,7 +368,7 @@ tokens with verified WCAG contrast ratios, typography scale, navigation plan, an
 - [Tailwind CSS Documentation: Responsive Design](https://tailwindcss.com/docs/responsive-design)
 - [Tailwind CSS Documentation: Theme Variables](https://tailwindcss.com/docs/theme)
 - [MDN: Using Custom Elements](https://developer.mozilla.org/en-US/docs/Web/API/Web_components/Using_custom_elements)
-  *(conceptual overview for reusable headers/footers)*
+  _(conceptual overview for reusable headers/footers)_
 
 **Topics:**
 
@@ -463,9 +465,9 @@ domain to hosting, why HTTPS matters even on static sites, and what a CDN does.
 
 ### Week 10 (Mar 8 – Mar 14) — Final Project Workshop & Pre-Launch Auditing
 
-*This is a workshop and catch-up week. There is **no weekly assignment** and **no new reading**,
-so students have dedicated time to finish and audit their Final Project and clear any late work
-before Finals Week.*
+_This is a workshop and catch-up week. There is **no weekly assignment** and **no new reading**, so
+students have dedicated time to finish and audit their Final Project and clear any late work before
+Finals Week._
 
 **Instructor example:** The complete instructor multi-page business site example
 (`examples/final-project/`) is published before Week 10 starts as a reference.
@@ -499,23 +501,23 @@ cross-browser testing, Lighthouse diagnostics, and using PR diffs to review chan
 
 ### COCC Course Learning Outcomes
 
-| Outcome (exact catalog language)                                                                 | Weeks                         |
-| ------------------------------------------------------------------------------------------------ | ----------------------------- |
-| Utilize the most recent HTML elements and CSS properties to create and style webpage content     | 1, 2, 3, 5, 6, 7, Final       |
-| Plan, construct, and style webpage layouts for multiple devices and users                        | 2, 3, 4, 6, 9, Final          |
-| Construct website features commonly found on large website projects                              | 5, 6, 7, Final                |
-| Integrate site management concepts such as SEO and accessibility into a website’s plan, layout, and design | 1, 4, 8, 9, 10, Final         |
+| Outcome (exact catalog language)                                                                           | Weeks                   |
+| ---------------------------------------------------------------------------------------------------------- | ----------------------- |
+| Utilize the most recent HTML elements and CSS properties to create and style webpage content               | 1, 2, 3, 5, 6, 7, Final |
+| Plan, construct, and style webpage layouts for multiple devices and users                                  | 2, 3, 4, 6, 9, Final    |
+| Construct website features commonly found on large website projects                                        | 5, 6, 7, Final          |
+| Integrate site management concepts such as SEO and accessibility into a website’s plan, layout, and design | 1, 4, 8, 9, 10, Final   |
 
 ### COCC Content Outline Topics
 
-| Content Outline Topic                     | Weeks                                            |
-| ----------------------------------------- | ------------------------------------------------ |
-| Usability and user experience             | 4, 6, 9, Final                                   |
-| Mobile web design                         | 3, 5, 6, Final                                   |
-| Advanced HTML elements and CSS properties | 1, 2, 3, 5, 6                                    |
-| Efficient HTML/CSS syntax                 | 1, 2, 7                                          |
-| CSS extension languages                   | 2 (Sass/PostCSS context), 7 (Tailwind CSS v4)    |
-| Large-scale navigation menus              | 5, Final                                         |
-| Search Engine Optimization (SEO)          | 8, 10, Final                                     |
-| Designing web forms                       | 6, Final                                         |
-| Web developer’s portfolio                 | 9, 11 (Final showcase)                           |
+| Content Outline Topic                     | Weeks                                         |
+| ----------------------------------------- | --------------------------------------------- |
+| Usability and user experience             | 4, 6, 9, Final                                |
+| Mobile web design                         | 3, 5, 6, Final                                |
+| Advanced HTML elements and CSS properties | 1, 2, 3, 5, 6                                 |
+| Efficient HTML/CSS syntax                 | 1, 2, 7                                       |
+| CSS extension languages                   | 2 (Sass/PostCSS context), 7 (Tailwind CSS v4) |
+| Large-scale navigation menus              | 5, Final                                      |
+| Search Engine Optimization (SEO)          | 8, 10, Final                                  |
+| Designing web forms                       | 6, Final                                      |
+| Web developer’s portfolio                 | 9, 11 (Final showcase)                        |

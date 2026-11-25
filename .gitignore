@@ -1,0 +1,11 @@
+node_modules/
+dist/
+.DS_Store
+*.local
+modules/**/*.html
+modules/**/*.pdf
+!modules/syllabus/syllabus.pdf
+modules/**/*.qti.zip
+
+# Student rosters hold names; never commit one anywhere in this public repo
+students.local.json
