@@ -181,10 +181,12 @@ examples, docs):
 - **Grading weights:** Weekly Quizzes 20% (10 short-essay quizzes), Weekly Assignments 40% (1 bye
   week allowed), Final Project 40% (4 equal milestones). No midterm or final exam.
 - **Late work:** Accepted without penalty through Week 10 (before Finals Week).
-- **Student AI policy:** Matches `cocc-js`—students may not use GenAI to produce assignments,
-  quizzes, or the final project. Two explicit exceptions: (1) troubleshooting local IT/environment
-  setup issues (Git, Node, VS Code), and (2) using **GitHub Copilot PR reviews** before submitting a
-  PR. Include full transparency on instructor use of AI to draft course materials.
+- **Student AI policy:** Students may not use GenAI to produce assignments, quizzes, or the final
+  project. Two explicit exceptions: (1) troubleshooting local IT/environment setup issues (Git,
+  Node, VS Code), and (2) using **any AI agent to perform an adversarial code/PR review** (pointing
+  out logical flaws, HTML/CSS/accessibility issues, and syntax problems without providing full
+  rewrites). Include the suggested review prompt in the syllabus and README, plus full transparency
+  on instructor use of AI to draft course materials.
 
 ### Final Project & Portfolio
 

@@ -58,9 +58,14 @@ If you have questions or concerns about any of this, I'm glad to talk about it.
 - **IT problems on your own computer.** You may use generative AI to solve trouble with Git, GitHub
   Desktop, Node and npm, VS Code, and other setup and environment issues. Getting your tools working
   isn't what this course is assessing, so don't stay stuck on it.
-- **GitHub Copilot pull request reviews.** I encourage you to have GitHub Copilot review your pull
-  requests before you submit them. Use its feedback to improve your own code; don't have it write
-  the code for you.
+- **AI code and pull request reviews.** You are permitted—and encouraged—to use any AI agent (such
+  as GitHub Copilot, Claude, ChatGPT, or Gemini) to review your code or pull requests before
+  submitting. Use its feedback to improve your own code; don't have it write or rewrite the code for
+  you. Here is a suggested prompt:
+
+  > "Perform an adversarial review of `<your-github-pr-link>`, pointing out my logical flaws,
+  > semantic HTML/CSS and accessibility issues, and syntax problems, without providing full rewrites
+  > of my work, in accordance with COCC academic honesty guidelines."
 
 **Not allowed:** You may not use generative AI to answer quiz questions or to build your assignments
 or final project, in whole or in part. The work you submit must be your own.
@@ -161,7 +166,7 @@ For each weekly assignment (e.g., `week1`):
 3. Inside `projects/week1`, run `npm install` and `npm run dev` while you build.
 4. Run `npm run format` and `npm run check` before committing.
 5. Push your branch to GitHub, open a Pull Request targeting `main`, tag **`artzte`** as reviewer
-   (and optionally request a GitHub Copilot review first), and submit the PR URL on Canvas.
+   (and optionally run an AI code review on your PR first), and submit the PR URL on Canvas.
 
 ## Receiving Course Updates
 

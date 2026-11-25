@@ -477,7 +477,8 @@ Finals Week._
 - Pre-launch QA checklist: HTML validation, Stylelint/Prettier, keyboard-only navigation pass, axe
   DevTools audit, Lighthouse 90+ check across all four categories
 - Cross-browser sanity check (Chromium + Firefox/Safari) and real mobile viewport check
-- Reviewing Git diffs and running a GitHub Copilot PR review before opening your final PR
+- Reviewing Git diffs and running an adversarial AI code review on your PR before opening your final
+  submission
 
 **Quiz 10 (due Monday, Mar 15):** Short synthesis quiz on pre-launch QA—accessibility verification,
 cross-browser testing, Lighthouse diagnostics, and using PR diffs to review changes before shipping.

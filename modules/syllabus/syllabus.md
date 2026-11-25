@@ -158,8 +158,9 @@ final project milestones and quizzes are all required.
 
 ### Help on Assignments
 
-I encourage you to use GitHub Copilot to review your pull requests before submitting. Beyond that,
-do not get assignment code from classmates or coding agents. Reach out to me if you need help.
+I encourage you to use an AI agent (such as GitHub Copilot, Claude, ChatGPT, or Gemini) to review
+your code and pull requests before submitting—pointing out flaws without rewriting your work. Beyond
+that, do not get assignment code from classmates or coding agents. Reach out to me if you need help.
 
 ### Artificial Intelligence Policy
 
@@ -169,11 +170,20 @@ your own original work done specifically for this course and without substantive
 others, including GenAI. Work you've completed for previous courses or are developing for other
 courses this term also should not be submitted for this course.
 
-There are two exceptions. First, as described under Help on Assignments, you may use GitHub Copilot
-to review your pull requests before submitting. Second, you may use GenAI tools to solve IT problems
-on your own computer, such as trouble with Git, GitHub Desktop, Node and npm, VS Code, or other
-setup issues. You may not use GenAI to answer quiz questions or to build your assignments or final
-project.
+There are two exceptions:
+
+1. **AI code reviews.** As described under Help on Assignments, you may use any AI agent to review
+   your code or pull requests before submitting. Use its feedback to improve your own work; do not
+   have it write or rewrite your code for you. Here is a suggested review prompt:
+
+   > "Perform an adversarial review of `<your-github-pr-link>`, pointing out my logical flaws,
+   > semantic HTML/CSS and accessibility issues, and syntax problems, without providing full
+   > rewrites of my work, in accordance with COCC academic honesty guidelines."
+
+2. **Local IT troubleshooting.** You may use GenAI tools to solve IT problems on your own computer,
+   such as trouble with Git, GitHub Desktop, Node and npm, VS Code, or other setup issues.
+
+You may not use GenAI to answer quiz questions or to build your assignments or final project.
 
 **Instructor use of AI.** In the interest of transparency: this course's materials, including this
 syllabus, the course outline, reading summaries, lecture notes, assignments, quizzes, and code

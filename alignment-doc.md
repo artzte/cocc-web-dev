@@ -400,7 +400,7 @@ By the end of this module you will be able to:
 
 1. Execute a complete pre-launch QA pass covering HTML/CSS validation, keyboard accessibility, axe
    DevTools, Lighthouse, and cross-browser verification
-2. Review a Pull Request diff (including evaluating GitHub Copilot PR review feedback) before
+2. Review a Pull Request diff (including evaluating adversarial AI code review feedback) before
    shipping
 
 ## Assessments
