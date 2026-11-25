@@ -6,7 +6,7 @@
   "scripts": {
     "format": "prettier --write .",
     "format:check": "prettier --check .",
-    "weekly:create": "scripts/mpf.sh"
+    "weekly:create": "node scripts/create-project.mjs"
   },
   "devDependencies": {
     "prettier": "^3.9.6"
