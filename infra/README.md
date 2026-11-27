@@ -5,16 +5,16 @@ and `projects/final`) can be deployed automatically to our shared AWS hosting en
 deployed, each project runs at:
 
 ```text
-https://<course-cloudfront-domain>/<your-slug>/<project>/
+https://d1f9yt0ja8k4zu.cloudfront.net/<your-slug>/<project>/
 ```
 
 For example, if your repository is `jdoe-cocc-web-dev`, your sites are served at:
 
-- `https://<course-cloudfront-domain>/jdoe` _(redirects automatically to `/jdoe/portfolio/`)_
-- `https://<course-cloudfront-domain>/jdoe/portfolio/` _(starts as a plain HTML index linking all
+- `https://d1f9yt0ja8k4zu.cloudfront.net/jdoe` _(redirects automatically to `/jdoe/portfolio/`)_
+- `https://d1f9yt0ja8k4zu.cloudfront.net/jdoe/portfolio/` _(starts as a plain HTML index linking all
   weeks, styled into your full Developer Portfolio in Week 10)_
-- `https://<course-cloudfront-domain>/jdoe/week1/` through `/jdoe/week8/`
-- `https://<course-cloudfront-domain>/jdoe/final/`
+- `https://d1f9yt0ja8k4zu.cloudfront.net/jdoe/week1/` through `/jdoe/week8/`
+- `https://d1f9yt0ja8k4zu.cloudfront.net/jdoe/final/`
 
 Visiting a project link that hasn't been deployed yet (such as `/jdoe/final/` early in the term)
 shows a friendly **"Not found — coming soon"** `404` page.
@@ -36,7 +36,7 @@ flowchart LR
         CF -->|"Origin Access Control"| S3
     end
 
-    Browser["Browser\nhttps://<cf-domain>/<slug> or /<slug>/<project>/"] --> CF
+    Browser["Browser\nhttps://d1f9yt0ja8k4zu.cloudfront.net/<slug> or /<slug>/<project>/"] --> CF
 ```
 
 ## Running Build Checks Locally Before Pushing

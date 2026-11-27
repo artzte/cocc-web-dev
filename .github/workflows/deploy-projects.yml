@@ -24,8 +24,7 @@ jobs:
     env:
       AWS_REGION: us-west-2
       S3_BUCKET: cocc-cis295-projects-081028362911
-      # Update with DistributionDomainName output after running `cd infra && npm run deploy`
-      CLOUDFRONT_DOMAIN: UPDATE-AFTER-CDK-DEPLOY.cloudfront.net
+      CLOUDFRONT_DOMAIN: d1f9yt0ja8k4zu.cloudfront.net
 
     steps:
       - name: Check out repository
