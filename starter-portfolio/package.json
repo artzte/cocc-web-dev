@@ -1,0 +1,33 @@
+{
+  "name": "cis295-portfolio",
+  "version": "1.0.0",
+  "description": "Student portfolio starter for CIS 295 — Web Development II",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "start": "vite",
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "lint": "npm run lint:html && npm run lint:css",
+    "lint:html": "html-validate \"*.html\"",
+    "lint:css": "stylelint \"src/**/*.css\" --allow-empty-input",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "check": "npm run lint && npm run format:check && npm test && npm run build"
+  },
+  "devDependencies": {
+    "html-validate": "^9.0.0",
+    "jsdom": "^25.0.0",
+    "prettier": "^3.9.6",
+    "stylelint": "^16.14.0",
+    "stylelint-config-standard": "^37.0.0",
+    "vite": "^6.0.0",
+    "vitest": "^3.2.0"
+  },
+  "allowScripts": {
+    "esbuild@0.25.12": true
+  }
+}

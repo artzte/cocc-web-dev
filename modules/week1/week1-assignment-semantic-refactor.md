@@ -40,9 +40,13 @@ Copy the starting markup and styles from [`examples/week1/`](../../examples/week
 
 ### Requirements
 
-1. **Repository & Tooling Setup**:
+1. **Repository, Portfolio & Tooling Setup**:
    - Create your private course repository from the `artzte/cocc-web-dev` template and add `artzte`
      as a collaborator (see [README Getting Started](../../README.md#getting-started)).
+   - Scaffold your plain HTML portfolio landing page once with `npm run weekly:create portfolio`,
+     replace "Your Name" in `projects/portfolio/index.html` with your own name, and run
+     `npm install` + `npm run check` inside `projects/portfolio` so `/<your-slug>` redirects to your
+     live portfolio index right away.
    - Scaffold `projects/week1` using `npm run weekly:create week1`.
 2. **Page-Level Landmarks**:
    - Replace the top bar with a `<header>` containing a `<nav aria-label="Primary">` (or similarly
@@ -152,26 +156,33 @@ git pull
 # 2. Create your week1 branch
 git checkout -b week1
 
-# 3. Scaffold projects/week1 from the starter kit (preferred; scripts/mpf.sh week1 also works in Bash)
+# 3. Scaffold your plain starter portfolio (one-time) and projects/week1
+npm run weekly:create portfolio
 npm run weekly:create week1
 
-# 4. Copy examples/week1/div-soup.html -> projects/week1/index.html
+# 4. Personalize projects/portfolio/index.html with your name and verify it builds
+cd projects/portfolio
+npm install
+npm run check
+cd ../..
+
+# 5. Copy examples/week1/div-soup.html -> projects/week1/index.html
 #    and examples/week1/div-soup.css -> projects/week1/src/styles/main.css,
 #    then install dependencies and start Vite
 cd projects/week1
 npm install
 npm run dev
 
-# 5. In a second terminal tab inside projects/week1, run live tests while you edit
+# 6. In a second terminal tab inside projects/week1, run live tests while you edit
 npm run test:watch
 
-# 6. Format, lint, test, and verify the production build before committing
+# 7. Format, lint, test, and verify the production build before committing
 npm run format
 npm run check
 
-# 7. Stage, commit, and push your branch
+# 8. Stage, commit, and push your branch
 git add .
-git commit -m "feat(week1): refactor Deschutes Trail Coffee homepage to semantic HTML5"
+git commit -m "feat(week1): add starter portfolio and semantic HTML5 refactor"
 git push -u origin week1
 ```
 

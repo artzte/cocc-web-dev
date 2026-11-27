@@ -18,7 +18,9 @@ if (
 
 const scriptDir = dirname(fileURLToPath(import.meta.url))
 const projectRoot = dirname(scriptDir)
-const starterDir = resolve(projectRoot, 'starter')
+const templateName =
+  folderName === 'portfolio' ? 'starter-portfolio' : 'starter'
+const starterDir = resolve(projectRoot, templateName)
 const projectsDir = resolve(projectRoot, 'projects')
 const targetDir = resolve(projectsDir, folderName)
 

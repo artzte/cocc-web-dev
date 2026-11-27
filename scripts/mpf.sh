@@ -27,7 +27,11 @@ fi
 SCRIPT_DIR="$(cd "$(dirname "$SCRIPT_PATH")" && pwd)"
 PROJECT_ROOT="$(dirname "$SCRIPT_DIR")"
 
-STARTER_DIR="$PROJECT_ROOT/starter"
+if [ "$NEW_FOLDER_NAME" = "portfolio" ]; then
+    STARTER_DIR="$PROJECT_ROOT/starter-portfolio"
+else
+    STARTER_DIR="$PROJECT_ROOT/starter"
+fi
 PROJECTS_DIR="$PROJECT_ROOT/projects"
 TARGET_DIR="$PROJECTS_DIR/$NEW_FOLDER_NAME"
 
