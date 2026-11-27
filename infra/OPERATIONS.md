@@ -121,3 +121,37 @@ node infra/scripts/roster.mjs infra/students.local.json render-index infra/site/
    `npm run cdk -- destroy --profile artzt-cocc` from `infra/`. Because the S3 bucket has
    `RemovalPolicy.RETAIN`, empty and delete it manually afterward if desired.
 3. Archive `infra/students.local.json` in 1Password and remove the local file.
+
+## Starting a subsequent term
+
+The same CDK stack, S3 bucket, and CloudFront distribution are reused across terms — no CDK changes
+or workflow domain updates are needed. Leaving previous students' S3 prefixes intact (running
+`--teardown` without `--purge-files` at the end of the prior term) lets alumni continue reaching
+their individual portfolio and project URLs even after the root directory page moves on to the next
+cohort.
+
+1. Update the term label (e.g., `Winter 2027`) in `infra/site/index.html` and commit the change.
+2. Create a fresh `infra/students.local.json` for the new cohort.
+   - To avoid overwriting a previous student's site if a last name repeats, list existing top-level
+     prefixes first and assign a distinct slug (e.g., `jsmith` instead of `smith`) when needed:
+
+     ```bash
+     aws s3 ls s3://cocc-cis295-projects-081028362911/ --profile artzt-cocc
+     ```
+
+     Because `issue-student-token.sh` pushes `STUDENT_SLUG` as a GitHub repository secret, the
+     student's deploy workflow automatically targets their assigned slug regardless of repo name.
+3. Provision IAM tokens and push secrets to the new cohort's repos:
+
+   ```bash
+   ./infra/scripts/roster-sync.sh --report
+   ./infra/scripts/roster-sync.sh --provision
+   ```
+
+4. Publish the updated root directory page (replaces only `/index.html` and `/404.html`, leaving
+   prior students' `/<slug>/` folders untouched):
+
+   ```bash
+   ./infra/scripts/deploy-root-index.sh --dry-run
+   ./infra/scripts/deploy-root-index.sh --deploy
+   ```
