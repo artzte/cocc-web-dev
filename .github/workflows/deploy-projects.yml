@@ -1,0 +1,153 @@
+name: Deploy Student Projects
+
+on:
+  push:
+    paths:
+      - 'projects/**'
+      - '.github/workflows/deploy-projects.yml'
+  workflow_dispatch:
+    inputs:
+      project:
+        description: 'Project folder under projects/ to deploy (e.g. week1, portfolio, final). Leave blank to deploy all.'
+        required: false
+        default: ''
+
+concurrency:
+  group: deploy-projects-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    name: Build & Deploy Projects
+    runs-on: ubuntu-latest
+
+    env:
+      AWS_REGION: us-west-2
+      S3_BUCKET: cocc-cis295-projects-081028362911
+      # Update with DistributionDomainName output after running `cd infra && npm run deploy`
+      CLOUDFRONT_DOMAIN: UPDATE-AFTER-CDK-DEPLOY.cloudfront.net
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+
+      - name: Discover target projects
+        id: discover
+        env:
+          INPUT_PROJECT: ${{ inputs.project }}
+          EVENT_NAME: ${{ github.event_name }}
+          BEFORE_SHA: ${{ github.event.before }}
+          CURRENT_SHA: ${{ github.sha }}
+        run: |
+          PROJECTS=()
+
+          if [ "$EVENT_NAME" = "workflow_dispatch" ] && [ -n "$INPUT_PROJECT" ]; then
+            if [ -f "projects/${INPUT_PROJECT}/package.json" ]; then
+              PROJECTS+=("$INPUT_PROJECT")
+            else
+              echo "Error: projects/${INPUT_PROJECT}/package.json not found." >&2
+              exit 1
+            fi
+          elif [ "$EVENT_NAME" = "push" ] && [ -n "$BEFORE_SHA" ] && [ "$BEFORE_SHA" != "0000000000000000000000000000000000000000" ]; then
+            while IFS= read -r proj; do
+              [ -n "$proj" ] && [ -f "projects/${proj}/package.json" ] && PROJECTS+=("$proj")
+            done < <(git diff --name-only "$BEFORE_SHA" "$CURRENT_SHA" -- 'projects/' | cut -d/ -f2 | sort -u)
+          else
+            for pkg in projects/*/package.json; do
+              [ -f "$pkg" ] || continue
+              PROJECTS+=("$(basename "$(dirname "$pkg")")")
+            done
+          fi
+
+          if [ "${#PROJECTS[@]}" -eq 0 ]; then
+            echo "No deployable projects found under projects/; skipping."
+            echo "has_projects=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "has_projects=true" >> "$GITHUB_OUTPUT"
+            echo "projects=${PROJECTS[*]}" >> "$GITHUB_OUTPUT"
+            echo "Target projects: ${PROJECTS[*]}"
+          fi
+
+      - name: Determine student slug
+        if: steps.discover.outputs.has_projects == 'true'
+        id: slug
+        env:
+          SECRET_SLUG: ${{ secrets.STUDENT_SLUG }}
+        run: |
+          if [ -n "$SECRET_SLUG" ]; then
+            SLUG="$SECRET_SLUG"
+          else
+            REPO_NAME="${GITHUB_REPOSITORY#*/}"
+            SLUG="${REPO_NAME%-cocc-web-dev}"
+          fi
+          SLUG="$(printf '%s' "$SLUG" | tr '[:upper:]' '[:lower:]')"
+          echo "student_slug=$SLUG" >> "$GITHUB_OUTPUT"
+          echo "Deploying under student prefix: /$SLUG/"
+
+      - name: Set up Node.js
+        if: steps.discover.outputs.has_projects == 'true'
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Install, check, and build target projects
+        if: steps.discover.outputs.has_projects == 'true'
+        env:
+          PROJECTS: ${{ steps.discover.outputs.projects }}
+          STUDENT_SLUG: ${{ steps.slug.outputs.student_slug }}
+        run: |
+          for project in $PROJECTS; do
+            echo "::group::Build & check projects/${project}"
+            (
+              cd "projects/${project}"
+              npm ci
+              npm run lint
+              npm run format:check
+              npm test
+              npx vite build --base="/${STUDENT_SLUG}/${project}/"
+            )
+            echo "::endgroup::"
+          done
+
+      - name: Configure AWS credentials
+        if: steps.discover.outputs.has_projects == 'true' && secrets.AWS_ACCESS_KEY_ID != ''
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ${{ env.AWS_REGION }}
+
+      - name: Sync built projects to S3
+        if: steps.discover.outputs.has_projects == 'true' && secrets.AWS_ACCESS_KEY_ID != ''
+        env:
+          PROJECTS: ${{ steps.discover.outputs.projects }}
+          STUDENT_SLUG: ${{ steps.slug.outputs.student_slug }}
+        run: |
+          echo "### Deployed CIS 295 Projects" >> "$GITHUB_STEP_SUMMARY"
+          for project in $PROJECTS; do
+            S3_TARGET="s3://${S3_BUCKET}/${STUDENT_SLUG}/${project}/"
+            echo "==> Syncing projects/${project}/dist/ -> ${S3_TARGET}"
+
+            # Upload content-hashed bundle files under assets/ (cached long-term at CloudFront edge)
+            aws s3 sync "projects/${project}/dist/" "$S3_TARGET" \
+              --exclude "*" \
+              --include "assets/*" \
+              --cache-control "public, max-age=31536000, immutable" \
+              --delete
+
+            # Upload HTML and any unhashed public/ files with no-store so updates appear immediately
+            aws s3 sync "projects/${project}/dist/" "$S3_TARGET" \
+              --exclude "assets/*" \
+              --cache-control "no-cache, no-store, must-revalidate" \
+              --delete
+
+            URL="https://${CLOUDFRONT_DOMAIN}/${STUDENT_SLUG}/${project}/"
+            echo "- **${project}:** [${URL}](${URL}) (\`${S3_TARGET}\`)" >> "$GITHUB_STEP_SUMMARY"
+          done
+
+      - name: Notice when AWS secrets are not yet configured
+        if: steps.discover.outputs.has_projects == 'true' && secrets.AWS_ACCESS_KEY_ID == ''
+        run: |
+          echo "AWS deployment secrets are not configured on this repository yet; checks and builds passed, skipping S3 upload."

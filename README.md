@@ -207,7 +207,9 @@ there—just always use `npm run weekly:create <week>` (not manual folder copies
 project folder.
 
 Once pushed, open a Pull Request on GitHub targeting `main`, optionally run an adversarial AI code
-review on your PR first, tag **`artzte`** as reviewer, and submit the PR URL on Canvas.
+review on your PR first, tag **`artzte`** as reviewer, and submit the PR URL on Canvas. For details
+on how your projects deploy automatically to CloudFront, see
+[Student Project Hosting and Deployment](infra/README.md).
 
 ## Receiving Course Updates
 

@@ -1,0 +1,11 @@
+node_modules/
+cdk.out/
+*.js
+!jest.config.js
+*.d.ts
+.env
+.env.*
+*.credentials.json
+
+# Student roster (names and repos); never commit to this public repo
+students.local.json

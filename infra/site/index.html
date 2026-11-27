@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="noindex, nofollow" />
+    <meta
+      name="description"
+      content="Central Oregon Community College CIS 295: Web Development II, Winter 2027 — Student Project Directory"
+    />
+    <title>
+      Central Oregon Community College CIS 295: Web Development II, Winter 2027
+    </title>
+    <style>
+      :root {
+        --bg: #f8fafc;
+        --surface: #ffffff;
+        --text: #0f172a;
+        --muted: #475569;
+        --accent: #2c5367;
+        --accent-hover: #1e3b4a;
+        --border: #e2e8f0;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        font-family:
+          system-ui,
+          -apple-system,
+          BlinkMacSystemFont,
+          'Segoe UI',
+          Roboto,
+          sans-serif;
+        line-height: 1.6;
+        color: var(--text);
+        background-color: var(--bg);
+      }
+
+      header,
+      main,
+      footer {
+        max-width: 48rem;
+        margin-inline: auto;
+        padding-inline: 1.5rem;
+      }
+
+      header {
+        padding-block: 3rem 1.5rem;
+        border-bottom: 1px solid var(--border);
+      }
+
+      .eyebrow {
+        margin: 0 0 0.25rem;
+        font-size: 0.875rem;
+        font-weight: 600;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+        color: var(--accent);
+      }
+
+      h1 {
+        margin: 0 0 0.5rem;
+        font-size: 1.75rem;
+        line-height: 1.25;
+      }
+
+      .subtitle {
+        margin: 0;
+        color: var(--muted);
+      }
+
+      .subtitle a,
+      footer a {
+        color: var(--accent);
+        text-decoration: underline;
+        text-underline-offset: 0.15em;
+      }
+
+      .subtitle a:hover,
+      footer a:hover {
+        color: var(--accent-hover);
+      }
+
+      main {
+        padding-block: 2rem 3rem;
+      }
+
+      h2 {
+        margin: 0 0 1rem;
+        font-size: 1.25rem;
+      }
+
+      .project-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: grid;
+        gap: 0.75rem;
+      }
+
+      .project-card {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: baseline;
+        justify-content: space-between;
+        gap: 0.75rem 1rem;
+        padding: 1rem 1.25rem;
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: 0.5rem;
+      }
+
+      .project-title {
+        font-weight: 600;
+        color: var(--accent);
+        text-decoration: none;
+      }
+
+      .project-title:hover {
+        color: var(--accent-hover);
+        text-decoration: underline;
+      }
+
+      .project-links {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: baseline;
+        gap: 0.75rem;
+        font-size: 0.875rem;
+      }
+
+      .portfolio-link {
+        color: var(--accent);
+        text-decoration: underline;
+        text-underline-offset: 0.15em;
+      }
+
+      .portfolio-link:hover {
+        color: var(--accent-hover);
+      }
+
+      .project-slug {
+        font-family:
+          ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+        font-size: 0.875rem;
+        color: var(--muted);
+      }
+
+      footer {
+        padding-block: 1.5rem 3rem;
+        border-top: 1px solid var(--border);
+        font-size: 0.875rem;
+        color: var(--muted);
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <p class="eyebrow">Central Oregon Community College</p>
+      <h1>CIS 295: Web Development II — Winter 2027</h1>
+      <p class="subtitle">
+        Student Project Preview Directory &middot;
+        <a href="https://github.com/artzte/cocc-web-dev">Course Repository</a>
+      </p>
+    </header>
+
+    <main>
+      <h2>Final Project &amp; Portfolio Sites</h2>
+      <!--
+        Template: deploy-root-index.sh replaces the PROJECTS marker below with one
+        entry per student from infra/students.local.json, sorted by slug.
+      -->
+      <ul class="project-list">
+        <!-- PROJECTS -->
+      </ul>
+    </main>
+
+    <footer>
+      <p>
+        CIS 295: Web Development II (Winter 2027) &middot;
+        <a href="https://github.com/artzte/cocc-web-dev"
+          >github.com/artzte/cocc-web-dev</a
+        >
+      </p>
+    </footer>
+  </body>
+</html>
