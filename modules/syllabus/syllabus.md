@@ -119,9 +119,10 @@ Additionally, you will need:
 - **Week 8 (Feb 22–28) — SEO, Performance & Site Management** — Metadata, Open Graph, JSON-LD
   (`Schema.org`), `robots.txt`/`sitemap.xml`, Core Web Vitals (LCP/CLS), Lighthouse audits; _Final
   Project Milestone 3 (Initial Structure & Test Deploy) due Mon, Mar 1_
-- **Week 9 (Mar 1–7) — Production Launch & Pre-Launch Auditing (Bye / Catch-Up Week)** — Short
-  lecture on DNS/HTTPS/CDN and pre-launch QA plus Quiz 9; **no weekly assignment** so you can catch
-  up on missing work and advance your Final Project
+- **Week 9 (Mar 1–7) — Production Launch, CI/CD & Pre-Launch Auditing (Bye / Catch-Up Week)** —
+  Short conceptual lecture on CI/CD pipelines, cloud-agnostic static hosting & IaC
+  (AWS/GCP/Azure/managed hosts), DNS/HTTPS, and pre-launch QA plus Quiz 9; **no weekly assignment**
+  so you can catch up on missing work and advance your Final Project
 - **Week 10 (Mar 8–14) — Developer Portfolio & Final Launch Prep** — Personal web developer
   portfolio with technical case studies linking your live Final Project and course work
 - **Week 11 (Mar 15–19, Finals Week) — Final Project Review & Approval** — _Final Project Milestone

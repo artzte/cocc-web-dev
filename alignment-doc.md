@@ -362,32 +362,39 @@ By the end of this module you will be able to:
 
 ---
 
-# Week 9: Production Launch & Pre-Launch Auditing (Bye / Catch-Up Week)
+# Week 9: Production Launch, CI/CD & Pre-Launch Auditing (Bye / Catch-Up Week)
 
 ## Module Learning Objectives
 
 By the end of this module you will be able to:
 
-1. Explain how custom domains, DNS records, HTTPS/TLS, and CDNs work together to serve a production
-   website
-2. Execute a complete pre-launch QA pass covering HTML/CSS validation, keyboard accessibility, axe
+1. Explain conceptually how an automated CI/CD build-and-deploy pipeline (checks, tests, build,
+   cache headers, scoped secrets) ships a static website safely
+2. Identify the core cloud-agnostic building blocks of static web hosting (private object storage,
+   CDN/HTTPS, edge routing, DNS, and Infrastructure as Code across AWS, Google Cloud, Azure, and
+   managed hosts) and verify AI-assisted CI/CD or hosting configs for common mistakes
+3. Execute a complete pre-launch QA pass covering HTML/CSS validation, keyboard accessibility, axe
    DevTools, Lighthouse, and cross-browser verification
-3. Review a Pull Request diff (including evaluating adversarial AI code review feedback) before
+4. Review a Pull Request diff (including evaluating adversarial AI code review feedback) before
    shipping
 
 ## Assessments
 
-- Quiz 9: DNS, HTTPS on static sites, CDN fundamentals, pre-launch QA, and diff review
+- Quiz 9: Automated CI/CD gates, caching strategies, cloud-agnostic static hosting & IaC concepts,
+  DNS/HTTPS, pre-launch QA, and diff review
 - _No weekly assignment (built-in catch-up week, third week from the end of the term)_
 
 ## Activities
 
-- Video: Domains, DNS, HTTPS, and how CloudFront serves your site
+- Video: Under the hood — conceptual tour of GitHub Actions CI/CD, IaC hosting (AWS/GCP/Azure &
+  managed static hosts), DNS, and HTTPS
 - Video: Walkthrough of the instructor reference Final Project and full pre-launch audit pass
 
 ## Learning Materials
 
 - [MDN: Publishing Your Website](https://developer.mozilla.org/en-US/docs/Learn_web_development/Getting_started/Your_first_website/Publishing_your_website)
+- Course pipeline & hosting reference files (`.github/workflows/deploy-projects.yml`,
+  `infra/lib/student-hosting-stack.ts`)
 - Instructor reference Final Project (`examples/final-project/`)
 
 ## Course Outcomes Supported

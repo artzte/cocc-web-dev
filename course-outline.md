@@ -458,7 +458,7 @@ Canvas.
 
 ---
 
-### Week 9 (Mar 1 – Mar 7) — Production Launch & Pre-Launch Auditing (Bye / Catch-Up Week)
+### Week 9 (Mar 1 – Mar 7) — Production Launch, CI/CD & Pre-Launch Auditing (Bye / Catch-Up Week)
 
 _This is a built-in bye / catch-up week (the third week from the end of the term). There is a short
 lecture and a quiz, and **no weekly assignment**, so students can catch up on any missing weekly
@@ -474,17 +474,32 @@ work and make strong progress on their Final Project._
 (`examples/final-project/`) is published before Week 9 starts so students have a full reference to
 study during catch-up week.
 
-**Topics (short lecture + walkthrough):**
+**Topics (short lecture + conceptual walkthrough):**
 
-- Production launch fundamentals: custom domains, DNS records (A/CNAME), HTTPS/TLS certificates, and
-  how CDNs like CloudFront serve static sites globally
-- Pre-launch QA checklist: HTML/CSS validation (`npm run check`), keyboard-only navigation pass, axe
-  DevTools audit, Lighthouse 90+ check across all four categories, and cross-browser verification
-  (Chromium + Firefox/Safari)
-- Reviewing Git diffs and running an adversarial AI code review on your PR before submitting
+- **Under the hood of automated deployment (CI/CD):** Conceptual walkthrough of the course's
+  `.github/workflows/deploy-projects.yml` pipeline — automated quality gates (`npm ci`, `lint`,
+  `format:check`, `test`, `vite build --base=...`), separate `Cache-Control` headers for hashed
+  assets vs. HTML, and least-privilege deployment secrets (vs. shared FTP logins)
+- **Cloud-agnostic static hosting & Infrastructure as Code (IaC):** Conceptual tour of the course's
+  `infra/lib/student-hosting-stack.ts` CDK stack (private object storage behind a CDN with OAC, edge
+  routing for clean URLs and `/404.html`, `X-Robots-Tag` headers) mapped to equivalent services
+  across **AWS, Google Cloud, and Azure** — plus when simpler managed static hosts (GitHub Pages,
+  Cloudflare Pages, Netlify) are a better fit for solo or small-business sites
+- **Using AI assistance responsibly for CI/CD & hosting:** Why developers commonly delegate YAML
+  workflows and IaC boilerplate to AI assistants, and what humans must still verify (no public
+  storage buckets, least-privilege credentials, real build/lint gates, sensible caching, no secrets
+  committed to Git)
+- **Production launch fundamentals:** Custom domains, DNS records (A/CNAME), HTTPS/TLS certificates,
+  and how CDNs serve static sites globally
+- **Pre-launch QA & PR review checklist:** Running `npm run check`, keyboard-only navigation pass,
+  axe DevTools audit, Lighthouse 90+ check across all four categories, cross-browser verification
+  (Chromium + Firefox/Safari), and reviewing Git diffs (including evaluating AI code review
+  feedback) before submitting
 
-**Quiz 9:** How DNS connects a custom domain to hosting, why HTTPS matters even on static sites,
-what a CDN does, pre-launch accessibility/Lighthouse checks, and using PR diffs to review changes.
+**Quiz 9:** What automated CI checks catch before deployment, why hashed assets and HTML use
+different `Cache-Control` strategies, core cloud static-hosting building blocks (private object
+storage + CDN + IaC + scoped secrets) and when to choose a managed static host, how DNS/HTTPS work,
+and pre-launch accessibility/Lighthouse and PR diff checks.
 
 ---
 
