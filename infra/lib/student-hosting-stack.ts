@@ -21,19 +21,20 @@ export class StudentHostingStack extends cdk.Stack {
       removalPolicy: cdk.RemovalPolicy.RETAIN,
     })
 
-    // 2. CloudFront viewer-request function for multi-page HTML sites and sub-project directories:
-    //    - "/" -> "/index.html"
-    //    - "/jdoe/final/about.html", "/jdoe/week1/assets/main.css" (has file extension) -> served as-is
-    //    - "/jdoe/final" (directory without trailing slash) -> 301 redirect to "/jdoe/final/"
-    //      so relative links like "./about.html" resolve inside the project directory
-    //    - "/jdoe/final/" -> "/jdoe/final/index.html"
+    // 2. CloudFront viewer-request function for student portfolios and multi-page sub-projects:
+    //    - "/" -> "/index.html" (class directory)
+    //    - "/404.html", "/jdoe/final/about.html", "/jdoe/week1/assets/main.css" -> served as-is
+    //    - "/jdoe" or "/jdoe/" -> 302 redirect to "/jdoe/portfolio/"
+    //    - "/jdoe/week1" (directory without trailing slash) -> 301 redirect to "/jdoe/week1/"
+    //      so relative links (./about.html, ../final/) resolve inside the project directory
+    //    - "/jdoe/week1/" -> "/jdoe/week1/index.html"
     const directoryRouterFunction = new cloudfront.Function(
       this,
       'StudentDirectoryRouterFunction',
       {
         functionName: 'cocc-cis295-student-router',
         comment:
-          'Redirects extensionless directory paths to trailing slash and resolves /<slug>/<project>/ to index.html',
+          'Redirects /<slug> to /<slug>/portfolio/, enforces trailing slashes on project directories, and resolves index.html',
         runtime: cloudfront.FunctionRuntime.JS_2_0,
         code: cloudfront.FunctionCode.fromInline(
           `
@@ -46,17 +47,28 @@ function handler(event) {
     return request;
   }
 
-  // Serve directory index for paths ending with "/"
-  if (uri.endsWith('/')) {
-    request.uri = uri + 'index.html';
-    return request;
-  }
-
   var parts = uri.split('/').filter(Boolean);
   var lastSegment = parts[parts.length - 1];
 
-  // Serve files with an extension (e.g. .html, .css, .js, .png, .webp, .xml, .txt) as-is
+  // Serve files with an extension (e.g. /404.html, .html, .css, .js, .png, .webp, .xml, .txt) as-is
   if (lastSegment.indexOf('.') !== -1) {
+    return request;
+  }
+
+  // Redirect /<student> and /<student>/ to that student's portfolio at /<student>/portfolio/
+  if (parts.length === 1) {
+    return {
+      statusCode: 302,
+      statusDescription: 'Found',
+      headers: {
+        location: { value: '/' + parts[0] + '/portfolio/' },
+      },
+    };
+  }
+
+  // Serve directory index for project paths ending with "/"
+  if (uri.endsWith('/')) {
+    request.uri = uri + 'index.html';
     return request;
   }
 
@@ -98,6 +110,8 @@ function handler(event) {
     )
 
     // 4. CloudFront distribution using Origin Access Control (OAC) to read from S3
+    //    Private S3 + OAC returns 403 for missing keys (unless s3:ListBucket is granted),
+    //    so map both 403 and 404 to /404.html ("Not found — coming soon") with a short TTL.
     this.distribution = new cloudfront.Distribution(
       this,
       'StudentProjectsDistribution',
@@ -121,6 +135,20 @@ function handler(event) {
             },
           ],
         },
+        errorResponses: [
+          {
+            httpStatus: 403,
+            responseHttpStatus: 404,
+            responsePagePath: '/404.html',
+            ttl: cdk.Duration.seconds(60),
+          },
+          {
+            httpStatus: 404,
+            responseHttpStatus: 404,
+            responsePagePath: '/404.html',
+            ttl: cdk.Duration.seconds(60),
+          },
+        ],
       },
     )
 
@@ -143,7 +171,7 @@ function handler(event) {
     new cdk.CfnOutput(this, 'BaseUrl', {
       value: `https://${this.distribution.distributionDomainName}`,
       description:
-        'Base HTTPS URL (append /<student-slug>/<project>/ to open a student site)',
+        'Base HTTPS URL (append /<student-slug> for portfolio or /<student-slug>/<project>/ for a project)',
     })
   }
 }

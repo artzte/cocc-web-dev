@@ -10,9 +10,14 @@ https://<course-cloudfront-domain>/<your-slug>/<project>/
 
 For example, if your repository is `jdoe-cocc-web-dev`, your sites are served at:
 
-- `https://<course-cloudfront-domain>/jdoe/week1/`
-- `https://<course-cloudfront-domain>/jdoe/portfolio/`
+- `https://<course-cloudfront-domain>/jdoe` _(redirects automatically to `/jdoe/portfolio/`)_
+- `https://<course-cloudfront-domain>/jdoe/portfolio/` _(starts as a plain HTML index linking all
+  weeks, styled into your full Developer Portfolio in Week 10)_
+- `https://<course-cloudfront-domain>/jdoe/week1/` through `/jdoe/week8/`
 - `https://<course-cloudfront-domain>/jdoe/final/`
+
+Visiting a project link that hasn't been deployed yet (such as `/jdoe/final/` early in the term)
+shows a friendly **"Not found — coming soon"** `404` page.
 
 ## Architecture and Build Workflow
 
@@ -26,12 +31,12 @@ flowchart LR
 
     subgraph AWS ["Course AWS Account (artzt-cocc)"]
         S3["S3 Bucket\ns3://cocc-cis295-projects-.../<slug>/<project>/\n• index.html, about.html, ...\n• assets/*"]
-        CF["CloudFront CDN\n+ Viewer-Request Directory Router\n(/<slug>/<project> -> /<slug>/<project>/)"]
+        CF["CloudFront CDN\n+ Viewer-Request Router\n(/<slug> -> /<slug>/portfolio/,\n403/404 -> /404.html)"]
         Checks -->|"aws s3 sync\n(scoped student token)"| S3
         CF -->|"Origin Access Control"| S3
     end
 
-    Browser["Browser\nhttps://<cf-domain>/<slug>/<project>/"] --> CF
+    Browser["Browser\nhttps://<cf-domain>/<slug> or /<slug>/<project>/"] --> CF
 ```
 
 ## Running Build Checks Locally Before Pushing
@@ -71,11 +76,14 @@ Because your site lives under `/<your-slug>/<project>/` rather than at the root 
 - Always link between pages using relative paths (`./about.html`, `./contact.html`) rather than
   root-absolute paths (`/about.html`).
 - Link from your Developer Portfolio (`/<your-slug>/portfolio/`) to your other deployed course
-  projects using sibling relative paths (`../final/`, `../week3/`, `../week6/`) or full HTTPS URLs.
+  projects using sibling relative paths (`../week1/`, `../final/`). Because your portfolio lives in
+  its own `projects/portfolio/` folder, you can freely add subfolders, stylesheets, and extra pages
+  inside it without ever conflicting with `week1`–`week8` or `final`.
 - The CloudFront viewer-request router
-  ([`infra/lib/student-hosting-stack.ts`](lib/student-hosting-stack.ts)) redirects extensionless
-  directory paths (like `/jdoe/final`) to `/jdoe/final/` and serves `/jdoe/final/index.html`,
-  ensuring all relative links and assets resolve cleanly.
+  ([`infra/lib/student-hosting-stack.ts`](lib/student-hosting-stack.ts)) redirects `/<your-slug>` to
+  `/<your-slug>/portfolio/`, redirects extensionless project directories (like `/jdoe/final`) to
+  `/jdoe/final/`, serves `index.html`, and returns `/404.html` ("Not found — coming soon") for
+  projects that haven't been deployed yet.
 
 ## Exploring the Infrastructure Code
 

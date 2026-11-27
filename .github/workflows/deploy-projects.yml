@@ -8,7 +8,7 @@ on:
   workflow_dispatch:
     inputs:
       project:
-        description: 'Project folder under projects/ to deploy (e.g. week1, portfolio, final). Leave blank to deploy all.'
+        description: 'Project folder under projects/ to deploy (e.g. portfolio, week1, final). Leave blank to deploy all.'
         required: false
         default: ''
 
@@ -31,7 +31,7 @@ jobs:
       - name: Check out repository
         uses: actions/checkout@v4
         with:
-          fetch-depth: 2
+          fetch-depth: 0
 
       - name: Discover target projects
         id: discover
@@ -54,6 +54,11 @@ jobs:
             while IFS= read -r proj; do
               [ -n "$proj" ] && [ -f "projects/${proj}/package.json" ] && PROJECTS+=("$proj")
             done < <(git diff --name-only "$BEFORE_SHA" "$CURRENT_SHA" -- 'projects/' | cut -d/ -f2 | sort -u)
+          elif [ "$EVENT_NAME" = "push" ] && git rev-parse --verify origin/main >/dev/null 2>&1; then
+            # Brand-new branch push: deploy only projects changed relative to origin/main
+            while IFS= read -r proj; do
+              [ -n "$proj" ] && [ -f "projects/${proj}/package.json" ] && PROJECTS+=("$proj")
+            done < <(git diff --name-only "origin/main...${CURRENT_SHA}" -- 'projects/' | cut -d/ -f2 | sort -u)
           else
             for pkg in projects/*/package.json; do
               [ -f "$pkg" ] || continue

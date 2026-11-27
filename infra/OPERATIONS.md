@@ -75,7 +75,8 @@ live URL in their workflow summaries.
    ./infra/scripts/roster-sync.sh --provision
    ```
 
-3. Refresh the class directory page:
+3. Refresh the class directory page and upload the shared `/404.html` ("Not found — coming soon")
+   page:
 
    ```bash
    ./infra/scripts/deploy-root-index.sh --dry-run

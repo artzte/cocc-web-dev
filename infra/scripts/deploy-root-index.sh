@@ -20,6 +20,7 @@ STACK_NAME="Cis295StudentHostingStack"
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]:-$0}")" && pwd)"
 TEMPLATE_FILE="$SCRIPT_DIR/../site/index.html"
+NOT_FOUND_FILE="$SCRIPT_DIR/../site/404.html"
 ROSTER_FILE="${STUDENT_ROSTER:-$SCRIPT_DIR/../students.local.json}"
 
 ACTION_MODE=""
@@ -92,6 +93,11 @@ if [[ ! -f "$TEMPLATE_FILE" ]]; then
   exit 1
 fi
 
+if [[ ! -f "$NOT_FOUND_FILE" ]]; then
+  echo "Error: 404 page not found at '$NOT_FOUND_FILE'." >&2
+  exit 1
+fi
+
 INDEX_FILE="$(mktemp "${TMPDIR:-/tmp}/cis295-root-index.XXXXXX")"
 trap 'rm -f "$INDEX_FILE"' EXIT
 
@@ -146,20 +152,27 @@ aws s3 cp "$INDEX_FILE" "s3://${BUCKET_NAME}/index.html" \
   --region "$AWS_REGION" \
   --profile "$AWS_PROFILE"
 
-echo "==> Creating CloudFront invalidation for '/' and '/index.html'..."
+echo "==> Uploading 404 page to s3://${BUCKET_NAME}/404.html..."
+aws s3 cp "$NOT_FOUND_FILE" "s3://${BUCKET_NAME}/404.html" \
+  --content-type "text/html; charset=utf-8" \
+  --cache-control "public, max-age=0, must-revalidate" \
+  --region "$AWS_REGION" \
+  --profile "$AWS_PROFILE"
+
+echo "==> Creating CloudFront invalidation for '/', '/index.html', and '/404.html'..."
 aws cloudfront create-invalidation \
   --distribution-id "$DISTRIBUTION_ID" \
-  --paths "/" "/index.html" \
+  --paths "/" "/index.html" "/404.html" \
   --profile "$AWS_PROFILE" \
   >/dev/null
 
 cat <<EOF
 
 ================================================================================
-Root Index Deployed
+Root Index & 404 Page Deployed
 ================================================================================
 Live Root URL:               ${BASE_URL}/
-S3 Object:                   s3://${BUCKET_NAME}/index.html
+S3 Objects:                  s3://${BUCKET_NAME}/index.html, s3://${BUCKET_NAME}/404.html
 CloudFront Distribution ID:  ${DISTRIBUTION_ID}
 ================================================================================
 EOF
